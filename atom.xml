@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://norlab.ulaval.ca/atom.xml" rel="self" type="application/atom+xml" /><link href="https://norlab.ulaval.ca/" rel="alternate" type="text/html" /><updated>2021-11-30T18:26:53+01:00</updated><id>https://norlab.ulaval.ca/atom.xml</id><title type="html">Northern Robotics Laboratory</title><subtitle>Website showcasing research and news from the Northern Robotics Laboratory, Laval University</subtitle><entry><title type="html">Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned</title><link href="https://norlab.ulaval.ca/publications/field-report-ltr/" rel="alternate" type="text/html" title="Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned" /><published>2021-11-30T00:00:00+01:00</published><updated>2021-11-30T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/publications/field-report-ltr</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/field-report-ltr/">&lt;p&gt;Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://norlab.ulaval.ca/atom.xml" rel="self" type="application/atom+xml" /><link href="https://norlab.ulaval.ca/" rel="alternate" type="text/html" /><updated>2021-12-13T16:17:53+01:00</updated><id>https://norlab.ulaval.ca/atom.xml</id><title type="html">Northern Robotics Laboratory</title><subtitle>Website showcasing research and news from the Northern Robotics Laboratory, Laval University</subtitle><entry><title type="html">Accurate outdoor ground truth based on total stations</title><link href="https://norlab.ulaval.ca/publications/total-station/" rel="alternate" type="text/html" title="Accurate outdoor ground truth based on total stations" /><published>2021-12-13T00:00:00+01:00</published><updated>2021-12-13T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/publications/total-station</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/total-station/">&lt;p&gt;In robotics, accurate ground-truth position fostered
+the development of mapping and localization algorithms through
+creation of cornerstone datasets. In outdoor environments and
+over long distance, total stations are the most accurate and precise
+measurement instruments for this purpose. Most total station-
+based systems in the literature are limited to three Degrees Of
+Freedoms (DOFs), due to the use of a single-prism tracking ap-
+proach. In this paper, we present preliminary work on measuring
+a full pose of a vehicle, bringing the referencing system to six
+DOFs. Three total stations are used to track in real time three
+prisms attached to a target platform. We describe the structure
+of the referencing system and the protocol for acquiring the
+ground truth with it. We evaluated its precision in a variety of
+different outdoor environments, ranging from open-sky to forest
+trails, and compare it with another popular source of reference
+position, the Real Time Kinematics (RTK) positioning solution.
+Results show that our approach is the most precise one, reaching
+an average positional error of 10 mm and 0.6 deg. This difference
+in performance was particularly stark in environments where
+Global Navigation Satellite System (GNSS) signals can be weaker
+due to overreaching vegetation.&lt;/p&gt;
+&lt;h1 id=&quot;contributions&quot;&gt;Contributions&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A tracking system using multiple total stations to obtain the 6DOFs of a mobile robot in outdoor environment;&lt;/li&gt;
+  &lt;li&gt;A calibration procedure of multiple total stations for a
+vehicle continuous tracking;&lt;/li&gt;
+  &lt;li&gt;A time synchronization and a long-range data transmis-
+sion protocol for online pose referencing;&lt;/li&gt;
+  &lt;li&gt;A precision analysis of our tracking procedure; and&lt;/li&gt;
+  &lt;li&gt;A comparison against a RTK positioning system.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;results-in-images&quot;&gt;Results in Images&lt;/h1&gt;
+
+&lt;p&gt;To ground the performance of the total station referencing
+system to a commonly-known alternative, we compared it to
+the RTK solution. 
+The satellite localization performed well in open areas, but a
+decreased in accuracy can be observed when portions of the sky
+view were obstructed by vegetation. 
+To this effect, we have recorded the RTK positioning data during two experiments: one in the quarry and another one in the forest. 
+Similarly to using the inter-prism distance to estimate the
+total station localization precision, we rely on the measured
+distance between the GNSS receivers to estimate their precision.&lt;/p&gt;
+
+&lt;p&gt;In the top figure, we compare the precision of the corrected
+RTK localization and our total station referencing system in the quarry. In this environment and with the robot moving, the precision is equivalent as shown on the histogram.&lt;/p&gt;
+
+&lt;p&gt;In a more difficult scenario, the bottom figure shows portions of the forest experiment, where the robot was in reach of all three total stations. 
+From the beginning until the mark of 200 s and in the reminder of the experiment (right plot), the GNSS signals are significantly attenuated by the trees growing on both sides of the trail. 
+During this part, the GNSS precision drops drastically, hovering around 1.6 m.
+From the mark 200 s, the sky view opens and the GNSS achieves its nominal precision again. 
+On the other hand, the average precision of the total station reference is 7.0 mm as long as the robot lies in the field of view of the total stations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/publications/total-stations/Results_gps_crv_paper.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;These two experiments show that the proposed total station setup has an equivalent accuracy and precision compared to the RTK solution in an open area. 
+However, our solution is significantly better in an obstructed environment such as a forest, where the GNSS signal is weaker because of the vegetation.
+Our setup can thus be used as a source of precise ground truth
+in both environment.&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;&lt;span id=&quot;Vaidis2021&quot;&gt;Vaidis, M., Giguère, P., Pomerleau, F., &amp;amp; Kubelka, V. (2021). Accurate outdoor ground truth based on total stations. &lt;i&gt;2021 18th Conference on Robots and Vision (CRV)&lt;/i&gt;. https://arxiv.org/abs/2104.14396&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/2104.14396&quot;&gt;Download article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Maxime Vaidis</name><email>vaidis.maxime@gmail.com</email></author><category term="publications" /><category term="publications" /><category term="ground-truth" /><category term="total-station" /><category term="motion tracking" /><category term="mobile robot" /><summary type="html">In robotics, accurate ground-truth position fostered the development of mapping and localization algorithms through creation of cornerstone datasets. In outdoor environments and over long distance, total stations are the most accurate and precise measurement instruments for this purpose. Most total station- based systems in the literature are limited to three Degrees Of Freedoms (DOFs), due to the use of a single-prism tracking ap- proach. In this paper, we present preliminary work on measuring a full pose of a vehicle, bringing the referencing system to six DOFs. Three total stations are used to track in real time three prisms attached to a target platform. We describe the structure of the referencing system and the protocol for acquiring the ground truth with it. We evaluated its precision in a variety of different outdoor environments, ranging from open-sky to forest trails, and compare it with another popular source of reference position, the Real Time Kinematics (RTK) positioning solution. Results show that our approach is the most precise one, reaching an average positional error of 10 mm and 0.6 deg. This difference in performance was particularly stark in environments where Global Navigation Satellite System (GNSS) signals can be weaker due to overreaching vegetation. Contributions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/total-stations/ski_trail.jpg%22,%20%22feature%22=%3E%22publications/total-stations/robot_three_theo_resized.jpg%22,%20%22thumb%22=%3Enil%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/total-stations/ski_trail.jpg%22,%20%22feature%22=%3E%22publications/total-stations/robot_three_theo_resized.jpg%22,%20%22thumb%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned</title><link href="https://norlab.ulaval.ca/publications/field-report-ltr/" rel="alternate" type="text/html" title="Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned" /><published>2021-11-30T00:00:00+01:00</published><updated>2021-11-30T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/publications/field-report-ltr</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/field-report-ltr/">&lt;p&gt;Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.&lt;/p&gt;
 
 &lt;h1 id=&quot;quick-facts&quot;&gt;Quick facts:&lt;/h1&gt;
 &lt;ul&gt;
@@ -455,13 +525,4 @@ Voici la liste des offres :&lt;/p&gt;
 
 &lt;p&gt;Envoyez votre choix de stage, votre CV et votre relevé de notes au directeur du laboratoire, François Pomerleau &lt;a href=&quot;mailto:francois.pomerleau@ift.ulaval.ca&quot;&gt;francois.pomerleau@ift.ulaval.ca&lt;/a&gt; .&lt;/p&gt;
 
-&lt;p&gt;Les postes seront alloués en début mars 2021.&lt;/p&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="news" /><category term="internships" /><summary type="html">Norlab ouvre quatre stages couvrant plusieurs domaines d’étude cet été. Appliquez aussitôt que vous pouvez car les offres se terminent sous peu. Voici la liste des offres :</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Project SNOW update: Better mapping for Lidar Teach &amp;amp; Repeat capability</title><link href="https://norlab.ulaval.ca/news/LTR/" rel="alternate" type="text/html" title="Project SNOW update: Better mapping for Lidar Teach &amp;amp; Repeat capability" /><published>2021-01-21T00:00:00+01:00</published><updated>2021-01-21T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/news/LTR</id><content type="html" xml:base="https://norlab.ulaval.ca/news/LTR/">&lt;p&gt;In the context of the second milestone of the Snow project, we want to expand and improve our mapping system.&lt;/p&gt;
-
-&lt;p&gt;In our research, we focus on mappers optimized for large-scale environments. The next step is to be able to save and later reuse the 3D map while re-locating in it to match the new initial position of the robot. All these improved capabilities will allow us to pursuit longer distances travelled using the lidar-teach-and-repeat mode. We aim for several kilometers automatically navigated in deep snow through paths of the Montmorency research forest.&lt;/p&gt;
-
-&lt;p&gt;Video of the lidar teach-and-repeat tests in the campus:&lt;/p&gt;
-
-&lt;!-- blank line --&gt;
-&lt;figure class=&quot;video_container&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/1mKg2BFUNpM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/figure&gt;</content><author><name>Jana Bartakova</name></author><category term="news" /><category term="project" /><summary type="html">In the context of the second milestone of the Snow project, we want to expand and improve our mapping system.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/LTR/ltr_b.png%22,%20%22teaser%22=%3E%22/news/LTR/ltr_a.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/LTR/ltr_b.png%22,%20%22teaser%22=%3E%22/news/LTR/ltr_a.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Les postes seront alloués en début mars 2021.&lt;/p&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="news" /><category term="internships" /><summary type="html">Norlab ouvre quatre stages couvrant plusieurs domaines d’étude cet été. Appliquez aussitôt que vous pouvez car les offres se terminent sous peu. Voici la liste des offres :</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
