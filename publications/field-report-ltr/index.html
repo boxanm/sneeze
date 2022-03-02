@@ -3,14 +3,44 @@
   <head>
     <meta charset="utf-8">
     <title>Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned • Northern Robotics Laboratory</title>
-    <meta name="description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.
+    <meta name="description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global
+Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and
+changing environment. This type of off-road environment is an extreme case of situations au-
+tonomous cars could encounter in northern regions. Thus, it is important to understand the impact
+of this harsh environment on autonomous navigation systems. To this end, we present a field re-
+port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of
+meteorological conditions. First, we describe the system, which relies on point cloud registration
+to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper-
+imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat
+mode. Over 14 repeat runs, only four manual interventions were required, three of which were
+due to localization failure and another one caused by battery power outage. We show that dense
+vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further-
+more, we highlight the increased uncertainty related to localizing using point cloud registration in
+forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects
+our system’s ability to localize within the environment. Finally, we expose some challenges and
+lessons learned from our field campaign to support better experimental work in winter conditions
 
 ">
     <meta name="keywords" content="SLAM, extreme environments, winter, navigation, GPS-denied operation">
     
     	<!-- Twitter Cards -->
 	<meta name="twitter:title" content="Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned">
-	<meta name="twitter:description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.
+	<meta name="twitter:description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global
+Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and
+changing environment. This type of off-road environment is an extreme case of situations au-
+tonomous cars could encounter in northern regions. Thus, it is important to understand the impact
+of this harsh environment on autonomous navigation systems. To this end, we present a field re-
+port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of
+meteorological conditions. First, we describe the system, which relies on point cloud registration
+to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper-
+imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat
+mode. Over 14 repeat runs, only four manual interventions were required, three of which were
+due to localization failure and another one caused by battery power outage. We show that dense
+vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further-
+more, we highlight the increased uncertainty related to localizing using point cloud registration in
+forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects
+our system’s ability to localize within the environment. Finally, we expose some challenges and
+lessons learned from our field campaign to support better experimental work in winter conditions
 
 ">
 	
@@ -23,7 +53,22 @@
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned">
-	<meta property="og:description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.
+	<meta property="og:description" content="Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global
+Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and
+changing environment. This type of off-road environment is an extreme case of situations au-
+tonomous cars could encounter in northern regions. Thus, it is important to understand the impact
+of this harsh environment on autonomous navigation systems. To this end, we present a field re-
+port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of
+meteorological conditions. First, we describe the system, which relies on point cloud registration
+to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper-
+imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat
+mode. Over 14 repeat runs, only four manual interventions were required, three of which were
+due to localization failure and another one caused by battery power outage. We show that dense
+vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further-
+more, we highlight the increased uncertainty related to localizing using point cloud registration in
+forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects
+our system’s ability to localize within the environment. Finally, we expose some challenges and
+lessons learned from our field campaign to support better experimental work in winter conditions
 
 ">
 	<meta property="og:image" content="https://norlab.ulaval.ca/images/publications/field-report-ltr2021/large_path.jpg">
@@ -188,7 +233,24 @@
 		</div>
 		<div class="inner-wrap">
 			<div id="content" class="page-content" itemprop="articleBody">
-				<p>Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations autonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field report analyzing teach-and-repeat navigation in a subarctic region while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We experimentally evaluate this system in over 18.6 km of autonomous navigation in the teach-and-repeat mode. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Furthermore, we highlight the increased uncertainty related to localizing using point cloud registration in forest corridors. We demonstrate that it is not snow precipitation, but snow accumulation that affects our system’s ability to localize within the environment. Finally, we expose some lessons learned and challenges from our field campaign to support better experimental work in winter conditions.</p>
+				<p>Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global
+Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and
+changing environment. This type of off-road environment is an extreme case of situations au-
+tonomous cars could encounter in northern regions. Thus, it is important to understand the impact
+of this harsh environment on autonomous navigation systems. To this end, we present a field re-
+port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of
+meteorological conditions. First, we describe the system, which relies on point cloud registration
+to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper-
+imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat
+mode. Over 14 repeat runs, only four manual interventions were required, three of which were
+due to localization failure and another one caused by battery power outage. We show that dense
+vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further-
+more, we highlight the increased uncertainty related to localizing using point cloud registration in
+forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects
+our system’s ability to localize within the environment. Finally, we expose some challenges and
+lessons learned from our field campaign to support better experimental work in winter conditions</p>
+
+<h1 id="link-to-the-paper"><a href="https://arxiv.org/abs/2111.13981">Link to the paper</a></h1>
 
 <h1 id="quick-facts">Quick facts:</h1>
 <ul>
@@ -198,7 +260,7 @@
   <li>Deployment in the <a href="https://www.foretmontmorency.ca/en/">Montmorency subarctic forest</a>, the largest research forest in the world harsh winter weather.</li>
   <li>We present a thorough analysis of the impact of the boreal forest biome and winter weather, inherent to northern countries on state-of-the-art autonomous navigation technologies.</li>
   <li>We highlight the upcoming challenges in enabling multi-season autonomy in northern territories.</li>
-  <li>Our preprint is available <a href="https://arxiv.org/abs/2111.13981">here</a>.</li>
+  <li>Our dataset is available to the community, you can access it <a href="https://github.com/norlab-ulaval/Norlab_wiki/wiki/Kilometer-scale-autonomous-navigation-in-subarctic-forests:-challenges-and-lessons-learned">here</a>.</li>
 </ul>
 
 <h1 id="video">Video</h1>
