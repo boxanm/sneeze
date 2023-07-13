@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Extrinsic calibration for highly accurate trajectories reconstruction • Northern Robotics Laboratory</title>
+    <meta name="description" content="In the context of robotics, accurate ground-truth positioning is the cornerstone for the development of mapping and localization algorithms. In outdoor environments and over long distances, total stations provide accurate and precise measurements, that are unaffected by the usual factors that deteriorate the accuracy of Global Navigation Satellite System (GNSS).
+While a single robotic total station can track the position of a target in three Degrees Of Freedom (DOF), three robotic total stations and three targets are necessary to yield the full six DOF
+pose reference. Since it is crucial to express the position of targets in a common coordinate frame, we present a novel extrinsic calibration method of multiple robotic total stations with field
+deployment in mind. The proposed method does not require the manual collection of ground control points during the system setup, nor does it require tedious synchronous measurement on each robotic total station. Based on extensive experimental work, we compare our approach to the classical extrinsic calibration methods used in geomatics for surveying and demonstrate that our approach brings substantial time savings during the deployment. Tested on more than 30 km of trajectories, our new method increases the precision of the extrinsic calibration by 25 % compared to the best state-of-the-art method, which is the one taking manually static ground control points.
+
+">
+    <meta name="keywords" content="publications, ground-truth, total-station, motion tracking, mobile robot">
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="Extrinsic calibration for highly accurate trajectories reconstruction">
+	<meta name="twitter:description" content="In the context of robotics, accurate ground-truth positioning is the cornerstone for the development of mapping and localization algorithms. In outdoor environments and over long distances, total stations provide accurate and precise measurements, that are unaffected by the usual factors that deteriorate the accuracy of Global Navigation Satellite System (GNSS).
+While a single robotic total station can track the position of a target in three Degrees Of Freedom (DOF), three robotic total stations and three targets are necessary to yield the full six DOF
+pose reference. Since it is crucial to express the position of targets in a common coordinate frame, we present a novel extrinsic calibration method of multiple robotic total stations with field
+deployment in mind. The proposed method does not require the manual collection of ground control points during the system setup, nor does it require tedious synchronous measurement on each robotic total station. Based on extensive experimental work, we compare our approach to the classical extrinsic calibration methods used in geomatics for surveying and demonstrate that our approach brings substantial time savings during the deployment. Tested on more than 30 km of trajectories, our new method increases the precision of the extrinsic calibration by 25 % compared to the best state-of-the-art method, which is the one taking manually static ground control points.
+
+">
+	
+	
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="http://localhost:4000/images/publications/extrinsic_calibration/deployment_winter.jpg">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Extrinsic calibration for highly accurate trajectories reconstruction">
+	<meta property="og:description" content="In the context of robotics, accurate ground-truth positioning is the cornerstone for the development of mapping and localization algorithms. In outdoor environments and over long distances, total stations provide accurate and precise measurements, that are unaffected by the usual factors that deteriorate the accuracy of Global Navigation Satellite System (GNSS).
+While a single robotic total station can track the position of a target in three Degrees Of Freedom (DOF), three robotic total stations and three targets are necessary to yield the full six DOF
+pose reference. Since it is crucial to express the position of targets in a common coordinate frame, we present a novel extrinsic calibration method of multiple robotic total stations with field
+deployment in mind. The proposed method does not require the manual collection of ground control points during the system setup, nor does it require tedious synchronous measurement on each robotic total station. Based on extensive experimental work, we compare our approach to the classical extrinsic calibration methods used in geomatics for surveying and demonstrate that our approach brings substantial time savings during the deployment. Tested on more than 30 km of trajectories, our new method increases the precision of the extrinsic calibration by 25 % compared to the best state-of-the-art method, which is the one taking manually static ground control points.
+
+">
+	<meta property="og:image" content="http://localhost:4000/images/publications/extrinsic_calibration/teaser_extrinsic_calibration.jpg">
+	<meta property="og:url" content="http://localhost:4000/publications/extrinsic-calibration/">
+	<meta property="og:site_name" content="Northern Robotics Laboratory">
+
+
+    <link rel="canonical" href="http://localhost:4000/publications/extrinsic-calibration/">
+
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Northern Robotics Laboratory Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+		<!-- Load MathJax if required -->
+		
+
+		<!-- Load extra fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Rokkitt:200" rel="stylesheet">
+
+  </head>
+
+  <body id="js-body">
+    <!--[if lt IE 9]><div class="upgrade notice-warning"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+    <header id="masthead">
+  <div class="inner-wrap">
+    <a href="http://localhost:4000/" class="site-title">Northern Robotics Laboratory </a>
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<!--li class="home"><a href="/">Northern Robotics Laboratory</a></li-->
+	
+    
+    <li>
+		<a href="http://localhost:4000/research/" 
+		>Research</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/publications/" 
+		>Publications</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/people/" 
+		>People</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/contact/" 
+		>Contact Us</a></li>
+  
+
+	<!-- Search for url -->
+	
+
+	
+
+	
+
+	
+		<li class="language-box"><span class="current-lang"> EN</span> </li>
+		
+			<li class="language-box"> <a  style="color:#e4e4e4;" href="/error/traduction-manquante/">FR</a> </li>
+		
+	
+
+</ul>
+
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>Northern Robotics Laboratory <span>Table of Contents</span></h5>
+
+  <ul class="menu-item">
+    
+			
+			<li>
+      	<a href="http://localhost:4000/research/">
+        
+        <div class="title">Research</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/publications/">
+        
+        <div class="title">Publications</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/people/">
+        
+        <div class="title">People</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/contact/">
+        
+        <div class="title">Contact Us</div>
+        
+      </a>
+    	</li>
+		
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="nav-lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+
+    <div id="page-wrapper">
+      <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		<div class="page-feature">
+			<div class="page-image">
+				<img src="http://localhost:4000/images/publications/extrinsic_calibration/deployment_winter.jpg" class="page-feature-image" alt="Extrinsic calibration for highly accurate trajectories reconstruction" itemprop="image">
+				
+			</div><!-- /.page-image -->
+		</div><!-- /.page-feature -->
+		
+		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> › 
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/publications/" itemprop="url">
+        <span itemprop="title">Publications</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+		<div class="page-title">
+			<h1>Extrinsic calibration for highly accurate trajectories reconstruction
+			<p></p>
+			</h1>
+		</div>
+		<div class="inner-wrap">
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>In the context of robotics, accurate ground-truth positioning is the cornerstone for the development of mapping and localization algorithms. In outdoor environments and over long distances, total stations provide accurate and precise measurements, that are unaffected by the usual factors that deteriorate the accuracy of Global Navigation Satellite System (GNSS).
+While a single robotic total station can track the position of a target in three Degrees Of Freedom (DOF), three robotic total stations and three targets are necessary to yield the full six DOF
+pose reference. Since it is crucial to express the position of targets in a common coordinate frame, we present a novel extrinsic calibration method of multiple robotic total stations with field
+deployment in mind. The proposed method does not require the manual collection of ground control points during the system setup, nor does it require tedious synchronous measurement on each robotic total station. Based on extensive experimental work, we compare our approach to the classical extrinsic calibration methods used in geomatics for surveying and demonstrate that our approach brings substantial time savings during the deployment. Tested on more than 30 km of trajectories, our new method increases the precision of the extrinsic calibration by 25 % compared to the best state-of-the-art method, which is the one taking manually static ground control points.</p>
+
+<h1 id="contributions">Contributions</h1>
+
+<ul>
+  <li>A new dynamic extrinsic calibration for several robotic total stations (RTS)</li>
+  <li>A pre-processing pipeline applied on the raw RTS data</li>
+  <li>A comparison of the accuracy and precision between the state-of-the-art extrinsic calibration in surveying and our new method</li>
+  <li>Datasets and the code are available online to the community at <a href="https://github.com/norlab-ulaval/RTS_project" title="Official code and datasets">Github Project RTS</a></li>
+</ul>
+
+<h1 id="results">Results</h1>
+
+<p>We have proposed a new dynamic extrinsic calibration method and a pipeline for pre-processing the RTSs data. This new dynamic calibration exploits the inter-prism distance measured by a setup of three RTSs during a robotic deployment to compute the rigid transformations between the frames of different RTS. Moreover, our new calibration method does not rely on Ground Control Points (GCP) to be measured on the field, which saves from 20 to 45 minutes at the beginning of each robotic deployment. Even with a higher error compared to other tested methods, the Dynamic inter-prism calibration still produce better results than a RTK solution in optimal condition (i.e., open sky). Additionally, the new preprocessing pipeline increased by 18 % the precision of the results, alongside the inter-prism calibration, which increased it by 25 % compared to the best state-of-the-art method as shown in this figure (A: two-points resection, B: Static GCPs calibration, C: Dynamic GCPs calibration and D: our method):</p>
+
+<center><img src="/images/publications/extrinsic_calibration/results_Vaidis2022.jpg" style="width: 80%" /></center>
+<center><em>Comparison of the calibration methods. Both the median error and the interquartile range (IQR) error are shown for the GCPs metric (blue) and the inter-prism metric (red). A: Two-points resection. B: Static GCPs calibration. C: Dynamic GCPs calibration. D: Dynamic inter-prism calibration. The upper dashed line represent the RTK GNSS precision and the lower dashed line represent the RTS noise level.</em></center>
+
+<p>As field experiment can be messy, if GCPs were forgotten or mishandled, the Dynamic inter-prism calibration can also be used to recover the calibration of the RTSs as it does not require a different set up than the one used to reconstruct a six DOF trajectory. Throughout the experiments, a limiting condition to our calibration method has been found to be long straight lines or L-shaped trajectories. The lack of rotation in these trajectories under-constrained the minimization. Thus causing the results to be off by more than 5 cm for the GCP metric for the HD2’s tunnel experiments even though the millimeter order was achieved for the inter-prism metric. Based on our experience, another possible contributor to unsatisfactory results is the distance between the prisms on the HD2, which was around 35 cm, compared to the one on the Warthog which respect the minimum distance of 80 cm advised by Trimble. For future work, we hypothesize that these short distances have had an impact on the experiment in the tunnel and must be further investigated.</p>
+
+<h1 id="reference">Reference</h1>
+
+<p><span id="Vaidis2023">Vaidis, M., Dubois, W., Guénette, A., Laconte, J., Kubelka, V., &amp; Pomerleau, F. (2023). Extrinsic calibration for highly accurate trajectories reconstruction. <i>Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</i>. https://arxiv.org/abs/2210.01048</span>
+<b>Accepted to ICRA 2023</b></p>
+
+<h1 id="links">Links</h1>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/2210.01048">Download article</a></li>
+</ul>
+
+
+				<hr />
+				<footer class="page-footer">
+					
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/people/m_vaidis_avatar.jpg" alt="Maxime Vaidis">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <a href="/people/m_vaidis" itemprop="author">Maxime Vaidis</a> </h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
+
+					<div class="inline-btn">
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Extrinsic%20calibration%20for%20highly%20accurate%20trajectories%20reconstruction&amp;url=http://localhost:4000/publications/extrinsic-calibration/&amp;via=" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/publications/extrinsic-calibration/" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook</a>
+</div><!-- /.share-this -->
+
+					<div class="page-meta">
+	<p>Updated <time datetime="2023-01-19T00:00:00Z" itemprop="datePublished">January 19, 2023</time></p>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		
+	</article><!-- ./wrap -->
+</div><!-- /#main -->
+
+      <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+      
+			<li><a href="https://www.ulaval.ca" target="_blank">Université Laval</a></li>
+		
+      
+			<li><a href="https://www.ift.ulaval.ca" target="_blank">Département d'informatique et de génie logiciel</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2023 <a href="http://localhost:4000">Northern Robotics Laboratory</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+</footer>
+    </div>
+
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
+
+		
+
+  </body>
+
+</html>

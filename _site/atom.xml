@@ -1,214 +1,509 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://norlab.ulaval.ca/atom.xml" rel="self" type="application/atom+xml" /><link href="https://norlab.ulaval.ca/" rel="alternate" type="text/html" /><updated>2019-05-28T17:03:01+02:00</updated><id>https://norlab.ulaval.ca/atom.xml</id><title type="html">Northern Robotics Laboratory</title><subtitle>Website showcasing research and news from the Northern Robotics Laboratory, Laval University</subtitle><entry><title type="html">Lidar Measurement Bias Estimation via Return Waveform Modelling in a Context of 3D Mapping</title><link href="https://norlab.ulaval.ca/publications/lidar-bias/" rel="alternate" type="text/html" title="Lidar Measurement Bias Estimation via Return Waveform Modelling in a Context of 3D Mapping" /><published>2019-05-27T00:00:00+02:00</published><updated>2019-05-27T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/publications/lidar-bias</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/lidar-bias/">&lt;p&gt;In a context of 3D mapping, it is very important to obtain accurate measurements from sensors.
-In particular, LIDAR measurements are typically treated as a zero-mean Gaussian distribution.
-We show that this assumption leads to predictable localisation drifts, especially when a bias related to measuring obstacles with high incidence angles is not taken into consideration.
-Moreover, we present a way to physically understand and model this bias, which generalizes to multiple sensors.
-Using an experimental setup, we measured the bias of the Sick LMS-151, Velodyne HDL-32E, and Robosense RS-LiDAR-16 as a function of depth and incidence angle, and showed that the bias can reach 20 cm for high incidence angles.
-We then used our model to remove the bias from the measurements, leading to more accurate maps and a reduced localisation drift.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://norlab.ulaval.ca/atom.xml" rel="self" type="application/atom+xml" /><link href="https://norlab.ulaval.ca/" rel="alternate" type="text/html" /><updated>2022-02-11T15:46:41-05:00</updated><id>https://norlab.ulaval.ca/atom.xml</id><title type="html">Northern Robotics Laboratory</title><subtitle>Website showcasing research and news from the Northern Robotics Laboratory, Laval University</subtitle><entry><title type="html">Lidar Scan Registration Robust to Extreme Motions</title><link href="https://norlab.ulaval.ca/publications/extreme-motions/" rel="alternate" type="text/html" title="Lidar Scan Registration Robust to Extreme Motions" /><published>2022-01-04T00:00:00-05:00</published><updated>2022-01-04T00:00:00-05:00</updated><id>https://norlab.ulaval.ca/publications/extreme-motions</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/extreme-motions/">&lt;p&gt;Registration algorithms, such as Iterative Closest Point (ICP), have proven effective in mobile robot localization algorithms over the last decades. However, they are susceptible to failure when a robot sustains extreme velocities and accelerations. For example, this kind of motion can happen after a collision, causing a point cloud to be heavily skewed. While point cloud de-skewing methods have been explored in the past to increase localization and mapping accuracy, these methods still rely on highly accurate odometry systems or ideal navigation conditions. In this paper, we present a method taking into account the remaining motion uncertainties of the trajectory used to de-skew a point cloud along with the environment geometry to increase the robustness of current registration algorithms. We compare our method to three other solutions in a test bench producing 3D maps with peak accelerations of 200 m/s&lt;sup&gt;2&lt;/sup&gt; and 800 rad/s&lt;sup&gt;2&lt;/sup&gt;. In these extreme scenarios, we demonstrate that our method decreases the error by 9.26 % in translation and by 21.84 % in rotation. The proposed method is generic enough to be integrated to many variants of weighted ICP without adaptation and supports localization robustness in harsher terrains.&lt;/p&gt;
+
 &lt;h1 id=&quot;contributions&quot;&gt;Contributions&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Physical explanation of the LIDAR bias&lt;/li&gt;
-  &lt;li&gt;A way to quantify and correct this bias for common LIDARs used in mobile robotics&lt;/li&gt;
+  &lt;li&gt;A novel motion uncertainty-based point weighting model, allowing the robustness of registration algorithms to be improved when subject to high velocities and accelerations, requiring neither high-fidelity pose estimation nor prior knowledge of the environment.&lt;/li&gt;
+  &lt;li&gt;Experimental comparison of our proposed approach with state-of-the-art approaches on a dataset gathered at high velocities and accelerations.&lt;/li&gt;
+  &lt;li&gt;A highlight of the impact of point cloud skewing on the accuracy of localization and mapping.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;results-in-images&quot;&gt;Results in Images&lt;/h1&gt;
 
-&lt;p&gt;Using our model, we found the following bias for three commonly used LIDARs:
-&lt;img src=&quot;/images/publications/lidar-bias/isocurves.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The top figure shows the experimental platform used for this work. A lidar and an IMU are mounted on a sensing platform, which is protected by a cage. A rope is attached to the platform and pulled on by an operator to induce high velocities and accelerations during lidar scans. Using this platform, we acquired scans at linear speeds and accelerations up to 3.5 m/s and 200 m/s&lt;sup&gt;2&lt;/sup&gt; and angular speeds and accelerations up to 11 rad/s and 800 rad/s&lt;sup&gt;2&lt;/sup&gt; in an indoor garage. When an operator pulled the rope, we recorded scans with our platform and used our method to build a map of the environment and localize within it. No prior knowledge of the environment is required by our method.&lt;/p&gt;
 
-&lt;p&gt;We were able to remove the bias from the measurements, leader to more accurate maps.
-In blue, the map of a tunnel without taking into account the bias.
-In red, the same map with taking into account the bias, and removing it from the measurements.
-&lt;img src=&quot;/images/publications/lidar-bias/tunnels.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/publications/extreme-motions/results.png&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The bottom figure shows a top view of three 3D reconstructions of the environment built while applying peak accelerations up to 194.98 m/s&lt;sup&gt;2&lt;/sup&gt; on our sensing platform. All three maps were built using the same data, with our method only used for the rightmost map. Points in dark purple have high error and points in green have low error. The error was computed against a ground truth map built while moving slowly the sensors. De-skewing significantly impacts the mean error by reducing it from 21.95 cm to 7.27 cm. Further improvement is gained by using our method, leading to a mean error of 6.86 cm. For example, one can observe an improvement in accuracy on the left wall.&lt;/p&gt;
 
 &lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
 
-&lt;p&gt;&lt;span id=&quot;Laconte2019&quot;&gt;Laconte, J., Deschênes, S.-P., Labussière, M., &amp;amp; Pomerleau, F. (2019). Lidar Measurement Bias Estimation via Return Waveform Modelling in a Context of 3D Mapping. In &lt;i&gt;Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span id=&quot;Deschenes2021&quot;&gt;Deschênes, S.-P., Baril, D., Kubelka, V., Giguère, P., &amp;amp; Pomerleau, F. (2021). Lidar Scan Registration Robust to Extreme Motions. &lt;i&gt;2021 18th Conference on Robots and Vision (CRV)&lt;/i&gt;. https://doi.org/10.1109/CRV52889.2021.00014&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.01619&quot;&gt;Download link&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Johann Laconte</name></author><category term="publications" /><category term="ICP" /><category term="bias estimation" /><category term="sensor error modelling" /><category term="lidar" /><category term="mapping" /><summary type="html">In a context of 3D mapping, it is very important to obtain accurate measurements from sensors. In particular, LIDAR measurements are typically treated as a zero-mean Gaussian distribution. We show that this assumption leads to predictable localisation drifts, especially when a bias related to measuring obstacles with high incidence angles is not taken into consideration. Moreover, we present a way to physically understand and model this bias, which generalizes to multiple sensors. Using an experimental setup, we measured the bias of the Sick LMS-151, Velodyne HDL-32E, and Robosense RS-LiDAR-16 as a function of depth and incidence angle, and showed that the bias can reach 20 cm for high incidence angles. We then used our model to remove the bias from the measurements, leading to more accurate maps and a reduced localisation drift. Contributions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22publications/lidar-bias_feature.jpg%22,%20%22teaser%22=%3E%22publications/lidar-bias_teaser.jpg%22,%20%22thumb%22=%3Enil%7D" /></entry><entry><title type="html">Satellite Visibility Prediction</title><link href="https://norlab.ulaval.ca/research/satellite-visibility/" rel="alternate" type="text/html" title="Satellite Visibility Prediction" /><published>2019-05-09T00:00:00+02:00</published><updated>2019-05-09T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/research/satellite-visibility</id><content type="html" xml:base="https://norlab.ulaval.ca/research/satellite-visibility/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
-&lt;p&gt;To help future mobile agents plan their movement in harsh environments,a predictive model has been designed to determine what areas would be favorable for Global Navigation Satellite System (GNSS) positioning. The model is able to predict the number of viable satellites for a GNSS receiver, based on a 3D point cloud map and a satellite constellation. Both occlusion and absorption effects of the environment are considered. A rugged mobile platform was designed to collect data in order to generate the point cloud maps. It was deployed during the Canadian winter known for large amounts of snow and extremely low temperatures. The test environments include a highly dense boreal forest and a university campus with high buildings. The experiment results indicate that the model performs well in both structured and unstructured environments.&lt;/p&gt;
+  &lt;li&gt;&lt;a href=&quot;/pdf/Deschenes2021.pdf&quot;&gt;Download article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Simon-Pierre Deschênes</name><email>simon-pierre.deschenes.1@ulaval.ca</email></author><category term="publications" /><category term="publications" /><category term="lidar" /><category term="point weighting" /><category term="registration" /><category term="ICP" /><category term="localization" /><category term="mapping" /><category term="de-skewing" /><category term="collision" /><category term="extreme motions" /><summary type="html">Registration algorithms, such as Iterative Closest Point (ICP), have proven effective in mobile robot localization algorithms over the last decades. However, they are susceptible to failure when a robot sustains extreme velocities and accelerations. For example, this kind of motion can happen after a collision, causing a point cloud to be heavily skewed. While point cloud de-skewing methods have been explored in the past to increase localization and mapping accuracy, these methods still rely on highly accurate odometry systems or ideal navigation conditions. In this paper, we present a method taking into account the remaining motion uncertainties of the trajectory used to de-skew a point cloud along with the environment geometry to increase the robustness of current registration algorithms. We compare our method to three other solutions in a test bench producing 3D maps with peak accelerations of 200 m/s2 and 800 rad/s2. In these extreme scenarios, we demonstrate that our method decreases the error by 9.26 % in translation and by 21.84 % in rotation. The proposed method is generic enough to be integrated to many variants of weighted ICP without adaptation and supports localization robustness in harsher terrains.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/extreme-motions/husky.png%22,%20%22feature%22=%3E%22publications/extreme-motions/cube.png%22,%20%22thumb%22=%3Enil%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/extreme-motions/husky.png%22,%20%22feature%22=%3E%22publications/extreme-motions/cube.png%22,%20%22thumb%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Accurate outdoor ground truth based on total stations</title><link href="https://norlab.ulaval.ca/publications/total-station/" rel="alternate" type="text/html" title="Accurate outdoor ground truth based on total stations" /><published>2021-12-13T00:00:00-05:00</published><updated>2021-12-13T00:00:00-05:00</updated><id>https://norlab.ulaval.ca/publications/total-station</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/total-station/">&lt;p&gt;In robotics, accurate ground-truth position fostered
+the development of mapping and localization algorithms through
+creation of cornerstone datasets. In outdoor environments and
+over long distance, total stations are the most accurate and precise
+measurement instruments for this purpose. Most total station-
+based systems in the literature are limited to three Degrees Of
+Freedoms (DOFs), due to the use of a single-prism tracking ap-
+proach. In this paper, we present preliminary work on measuring
+a full pose of a vehicle, bringing the referencing system to six
+DOFs. Three total stations are used to track in real time three
+prisms attached to a target platform. We describe the structure
+of the referencing system and the protocol for acquiring the
+ground truth with it. We evaluated its precision in a variety of
+different outdoor environments, ranging from open-sky to forest
+trails, and compare it with another popular source of reference
+position, the Real Time Kinematics (RTK) positioning solution.
+Results show that our approach is the most precise one, reaching
+an average positional error of 10 mm and 0.6 deg. This difference
+in performance was particularly stark in environments where
+Global Navigation Satellite System (GNSS) signals can be weaker
+due to overreaching vegetation.&lt;/p&gt;
+&lt;h1 id=&quot;contributions&quot;&gt;Contributions&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A tracking system using multiple total stations to obtain the 6DOFs of a mobile robot in outdoor environment;&lt;/li&gt;
+  &lt;li&gt;A calibration procedure of multiple total stations for a
+vehicle continuous tracking;&lt;/li&gt;
+  &lt;li&gt;A time synchronization and a long-range data transmis-
+sion protocol for online pose referencing;&lt;/li&gt;
+  &lt;li&gt;A precision analysis of our tracking procedure; and&lt;/li&gt;
+  &lt;li&gt;A comparison against a RTK positioning system.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;results-in-images&quot;&gt;Results in Images&lt;/h1&gt;
+
+&lt;p&gt;To ground the performance of the total station referencing
+system to a commonly-known alternative, we compared it to
+the RTK solution. 
+The satellite localization performed well in open areas, but a
+decreased in accuracy can be observed when portions of the sky
+view were obstructed by vegetation. 
+To this effect, we have recorded the RTK positioning data during two experiments: one in the quarry and another one in the forest. 
+Similarly to using the inter-prism distance to estimate the
+total station localization precision, we rely on the measured
+distance between the GNSS receivers to estimate their precision.&lt;/p&gt;
+
+&lt;p&gt;In the top figure, we compare the precision of the corrected
+RTK localization and our total station referencing system in the quarry. In this environment and with the robot moving, the precision is equivalent as shown on the histogram.&lt;/p&gt;
+
+&lt;p&gt;In a more difficult scenario, the bottom figure shows portions of the forest experiment, where the robot was in reach of all three total stations. 
+From the beginning until the mark of 200 s and in the reminder of the experiment (right plot), the GNSS signals are significantly attenuated by the trees growing on both sides of the trail. 
+During this part, the GNSS precision drops drastically, hovering around 1.6 m.
+From the mark 200 s, the sky view opens and the GNSS achieves its nominal precision again. 
+On the other hand, the average precision of the total station reference is 7.0 mm as long as the robot lies in the field of view of the total stations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/publications/total-stations/Results_gps_crv_paper.jpg&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;These two experiments show that the proposed total station setup has an equivalent accuracy and precision compared to the RTK solution in an open area. 
+However, our solution is significantly better in an obstructed environment such as a forest, where the GNSS signal is weaker because of the vegetation.
+Our setup can thus be used as a source of precise ground truth
+in both environment.&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;&lt;span id=&quot;Vaidis2021&quot;&gt;Vaidis, M., Giguère, P., Pomerleau, F., &amp;amp; Kubelka, V. (2021). Accurate outdoor ground truth based on total stations. &lt;i&gt;2021 18th Conference on Robots and Vision (CRV)&lt;/i&gt;. https://arxiv.org/abs/2104.14396&lt;/span&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/2104.14396&quot;&gt;Download article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Maxime Vaidis</name><email>vaidis.maxime@gmail.com</email></author><category term="publications" /><category term="publications" /><category term="ground-truth" /><category term="total-station" /><category term="motion tracking" /><category term="mobile robot" /><summary type="html">In robotics, accurate ground-truth position fostered the development of mapping and localization algorithms through creation of cornerstone datasets. In outdoor environments and over long distance, total stations are the most accurate and precise measurement instruments for this purpose. Most total station- based systems in the literature are limited to three Degrees Of Freedoms (DOFs), due to the use of a single-prism tracking ap- proach. In this paper, we present preliminary work on measuring a full pose of a vehicle, bringing the referencing system to six DOFs. Three total stations are used to track in real time three prisms attached to a target platform. We describe the structure of the referencing system and the protocol for acquiring the ground truth with it. We evaluated its precision in a variety of different outdoor environments, ranging from open-sky to forest trails, and compare it with another popular source of reference position, the Real Time Kinematics (RTK) positioning solution. Results show that our approach is the most precise one, reaching an average positional error of 10 mm and 0.6 deg. This difference in performance was particularly stark in environments where Global Navigation Satellite System (GNSS) signals can be weaker due to overreaching vegetation. Contributions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/total-stations/ski_trail.jpg%22,%20%22feature%22=%3E%22publications/total-stations/robot_three_theo_resized.jpg%22,%20%22thumb%22=%3Enil%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/total-stations/ski_trail.jpg%22,%20%22feature%22=%3E%22publications/total-stations/robot_three_theo_resized.jpg%22,%20%22thumb%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned</title><link href="https://norlab.ulaval.ca/publications/field-report-ltr/" rel="alternate" type="text/html" title="Kilometer-scale autonomous navigation in subarctic forests: challenges and lessons learned" /><published>2021-11-30T00:00:00-05:00</published><updated>2021-11-30T00:00:00-05:00</updated><id>https://norlab.ulaval.ca/publications/field-report-ltr</id><content type="html" xml:base="https://norlab.ulaval.ca/publications/field-report-ltr/">&lt;p&gt;Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global
+Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and
+changing environment. This type of off-road environment is an extreme case of situations au-
+tonomous cars could encounter in northern regions. Thus, it is important to understand the impact
+of this harsh environment on autonomous navigation systems. To this end, we present a field re-
+port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of
+meteorological conditions. First, we describe the system, which relies on point cloud registration
+to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper-
+imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat
+mode. Over 14 repeat runs, only four manual interventions were required, three of which were
+due to localization failure and another one caused by battery power outage. We show that dense
+vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further-
+more, we highlight the increased uncertainty related to localizing using point cloud registration in
+forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects
+our system’s ability to localize within the environment. Finally, we expose some challenges and
+lessons learned from our field campaign to support better experimental work in winter conditions&lt;/p&gt;
+
+&lt;h1 id=&quot;link-to-the-paper&quot;&gt;&lt;a href=&quot;https://arxiv.org/abs/2111.13981&quot;&gt;Link to the paper&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h1 id=&quot;quick-facts&quot;&gt;Quick facts:&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;This method has been tested in diverse environments such has a highly dense boreal forest and a university campus with high buildings&lt;/li&gt;
-  &lt;li&gt;This method is able to differentiate between forest and buildings&lt;/li&gt;
-  &lt;li&gt;The hardware used in the paper has been proven to work in sub-arctic environment&lt;/li&gt;
-  &lt;li&gt;Our preprint is available &lt;a href=&quot;https://arxiv.org/abs/1904.07837&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;18.6 km of autonomous route repeating using a &lt;a href=&quot;https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/https://clearpathrobotics.com/warthog-unmanned-ground-vehicle-robot/&quot;&gt;Clearpath Warthog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The description of our Weather-Invariant Lidar-based navigation (WILN) system, relying on a &lt;a href=&quot;https://www.robosense.ai/en/rslidar/RS-LiDAR-32&quot;&gt;Robosense RS-32 lidar&lt;/a&gt; and a &lt;a href=&quot;https://www.xsens.com/products/mti-10-series&quot;&gt;XSens MTi-10 IMU&lt;/a&gt; for autonomous navigation.&lt;/li&gt;
+  &lt;li&gt;GNSS localization measurements using &lt;a href=&quot;https://emlid.com/reachrs/&quot;&gt;Emlid Reach-RS+&lt;/a&gt; receivers.&lt;/li&gt;
+  &lt;li&gt;Deployment in the &lt;a href=&quot;https://www.foretmontmorency.ca/en/&quot;&gt;Montmorency subarctic forest&lt;/a&gt;, the largest research forest in the world harsh winter weather.&lt;/li&gt;
+  &lt;li&gt;We present a thorough analysis of the impact of the boreal forest biome and winter weather, inherent to northern countries on state-of-the-art autonomous navigation technologies.&lt;/li&gt;
+  &lt;li&gt;We highlight the upcoming challenges in enabling multi-season autonomy in northern territories.&lt;/li&gt;
+  &lt;li&gt;Our dataset is available to the community, you can access it &lt;a href=&quot;https://github.com/norlab-ulaval/Norlab_wiki/wiki/Kilometer-scale-autonomous-navigation-in-subarctic-forests:-challenges-and-lessons-learned&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;video&quot;&gt;Video&lt;/h1&gt;
 &lt;!-- blank line --&gt;
 &lt;figure class=&quot;video_container&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/5LdxV1-9rEE&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/W8TdAoeNv4U&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
-&lt;!-- blank line --&gt;
+&lt;!-- blank line --&gt;</content><author><name>Dominic Baril</name><email>dominic.baril@norlab.ulaval.ca</email></author><category term="publications" /><category term="SLAM" /><category term="extreme environments" /><category term="winter" /><category term="navigation" /><category term="GPS-denied operation" /><summary type="html">Challenges inherent to autonomous wintertime navigation in forests include lack of reliable a Global Navigation Satellite System (GNSS) signal, low feature contrast, high illumination variations and changing environment. This type of off-road environment is an extreme case of situations au- tonomous cars could encounter in northern regions. Thus, it is important to understand the impact of this harsh environment on autonomous navigation systems. To this end, we present a field re- port analyzing teach-and-repeat navigation in a subarctic forest while subject to large variations of meteorological conditions. First, we describe the system, which relies on point cloud registration to localize a mobile robot through a boreal forest, while simultaneously building a map. We exper- imentally evaluate this system in over 18.8 km of autonomous navigation in the teach-and-repeat mode. Over 14 repeat runs, only four manual interventions were required, three of which were due to localization failure and another one caused by battery power outage. We show that dense vegetation perturbs the GNSS signal, rendering it unsuitable for navigation in forest trails. Further- more, we highlight the increased uncertainty related to localizing using point cloud registration in forest trails. We demonstrate that it is not snow precipitation, but snow accumulation, that affects our system’s ability to localize within the environment. Finally, we expose some challenges and lessons learned from our field campaign to support better experimental work in winter conditions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22publications/field-report-ltr2021/ref_maps.jpg%22,%20%22teaser%22=%3E%22publications/field-report-ltr2021/large_path.jpg%22,%20%22thumb%22=%3Enil%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22publications/field-report-ltr2021/ref_maps.jpg%22,%20%22teaser%22=%3E%22publications/field-report-ltr2021/large_path.jpg%22,%20%22thumb%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Vincent Grondin</title><link href="https://norlab.ulaval.ca/people/v_grondin/" rel="alternate" type="text/html" title="Vincent Grondin" /><published>2021-07-27T00:00:00-04:00</published><updated>2021-07-27T00:00:00-04:00</updated><id>https://norlab.ulaval.ca/people/v_grondin</id><content type="html" xml:base="https://norlab.ulaval.ca/people/v_grondin/">&lt;p&gt;Vincent Grondin is a Ph.D candidate supervised by Prof. &lt;a href=&quot;../../people/p_giguere_fr&quot;&gt;Philippe Giguère&lt;/a&gt;  at Université Laval, and he is a member of Norlab. He graduated with both a certificate in physics and a bachelor in electrical engineering from Université de Sherbrooke. During his bachelor, he was responsible for ensuring the control and simulation of a Hoverbike as a part of a higly-funded third year project. He also completed two internships at the &lt;a href=&quot;https://www.asc-csa.gc.ca/eng/default.asp&quot; target=&quot;_blank&quot;&gt; Canadian Space Agency &lt;/a&gt; , where he developed a communication prototype with spatial recognition. Additionally, during an internship at the &lt;a href=&quot;https://www.gel.usherbrooke.ca/audio/&quot; target=&quot;_blank&quot;&gt; Speech and Audio Research Group Laboratory &lt;/a&gt;, he conducted research on the classification of speech and audio by using artificial intelligence (AI).&lt;/p&gt;
+
+&lt;p&gt;Currently, his research focuses on environment perception and simulation by employing AI in forests. Here is an example of his most recent project where AI algorithms perform automatic tree detection:&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.youtube.com/embed/KAh_z77_4eM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;education&quot;&gt;Education&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;M.Sc. en informatique (&lt;a href=&quot;https://norlab.ulaval.ca/accueil/&quot; target=&quot;_blank&quot;&gt; Norlab &lt;/a&gt;) - Université Laval (passage accéléré au doctorat), 2020&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;B.Ing. en génie électrique - Université de Sherbrooke, 2018&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Certificat en physique - Université de Sherbrooke, 2014&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;publications&quot;&gt;Publications&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Dandurand2019&quot;&gt;Dandurand, P., Babin, P., Kubelka, V., Giguère, P., &amp;amp; Pomerleau, F. (2019). Predicting GNSS satellite visibility from dense point clouds. In &lt;i&gt;preprint, ArXiv. Submitted to Field and Service Robotics (FSR)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Dandurand2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Philippe Dandurand</name></author><category term="project" /><category term="GNSS" /><category term="GPS" /><category term="lidar" /><category term="RTK" /><category term="DGNSS" /><category term="winter" /><category term="mapping" /><category term="uncertainty" /><summary type="html">Abstract To help future mobile agents plan their movement in harsh environments,a predictive model has been designed to determine what areas would be favorable for Global Navigation Satellite System (GNSS) positioning. The model is able to predict the number of viable satellites for a GNSS receiver, based on a 3D point cloud map and a satellite constellation. Both occlusion and absorption effects of the environment are considered. A rugged mobile platform was designed to collect data in order to generate the point cloud maps. It was deployed during the Canadian winter known for large amounts of snow and extremely low temperatures. The test environments include a highly dense boreal forest and a university campus with high buildings. The experiment results indicate that the model performs well in both structured and unstructured environments.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22projects/sat_vis_feature.jpg%22,%20%22teaser%22=%3E%22projects/sat_vis_teaser.jpg%22,%20%22thumb%22=%3Enil%7D" /></entry><entry><title type="html">First appearance of the lab in IEEE Spectrum</title><link href="https://norlab.ulaval.ca/news/ieee-spectrum/" rel="alternate" type="text/html" title="First appearance of the lab in IEEE Spectrum" /><published>2019-05-07T00:00:00+02:00</published><updated>2019-05-07T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/news/ieee-spectrum</id><content type="html" xml:base="https://norlab.ulaval.ca/news/ieee-spectrum/">&lt;p&gt;Norlab appears in the online version of the magazine IEEE Spectrum with the title &lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/darpa-subt-meet-the-first-nine-teams&quot;&gt;DARPA Subterranean Challenge: Meet the First 9 Teams&lt;/a&gt;.
-They confuse our French and English name, but at least the URL is correct.&lt;/p&gt;
+&lt;h2 class=&quot;bibliography&quot;&gt;Conference Articles&lt;/h2&gt;
+&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Baril2020&quot;&gt;Baril, D., Grondin, V., Deschenes, S., Laconte, J., Vaidis, M., Kubelka, V., Gallant, A., Giguere, P., &amp;amp; Pomerleau, F. (2020). Evaluation of Skid-Steering Kinematic Models for Subarctic Environments. &lt;i&gt;2020 17th Conference on Computer and Robot Vision (CRV)&lt;/i&gt;, 198–205. https://doi.org/10.1109/CRV50864.2020.00034&lt;/span&gt;
 
-&lt;p&gt;Our lab is supporting the mapping capability of the Team CRAS (Center for Robotics and Autonomous Systems) leaded by the Czech Technical University in Prague, Czech Republic.&lt;/p&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="media" /><summary type="html">Norlab appears in the online version of the magazine IEEE Spectrum with the title DARPA Subterranean Challenge: Meet the First 9 Teams. They confuse our French and English name, but at least the URL is correct.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22/logos/ieeeSpectrum.jpg%22%7D" /></entry><entry><title type="html">Information for New Students</title><link href="https://norlab.ulaval.ca/research/new-students/" rel="alternate" type="text/html" title="Information for New Students" /><published>2019-05-07T00:00:00+02:00</published><updated>2019-05-07T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/research/new-students</id><content type="html" xml:base="https://norlab.ulaval.ca/research/new-students/">&lt;p&gt;Welcome to the laboratory!
-It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.&lt;/p&gt;
+&lt;br /&gt;
 
-&lt;h1 id=&quot;register-to-news-feeds&quot;&gt;Register to news feeds&lt;/h1&gt;
+&lt;a href=&quot;/pdf/Baril2020.pdf&quot;&gt;&lt;i class=&quot;fas fa-file-pdf&quot;&gt;&amp;nbsp;PDF&lt;/i&gt;&lt;/a&gt;
+&amp;emsp;
 
-&lt;ul&gt;
-  &lt;li&gt;Register to the magazine &lt;a href=&quot;https://www.universityaffairs.ca&quot;&gt;University Affairs&lt;/a&gt; (free) for general information about the academic life.&lt;/li&gt;
-  &lt;li&gt;Register to &lt;a href=&quot;https://www.eu-robotics.net/eurobotics/newsroom/mailing-list&quot;&gt;euRobotics mailing list&lt;/a&gt;  for jobs, software release, call for journal special issues, etc.&lt;/li&gt;
-  &lt;li&gt;Register to &lt;a href=&quot;http://duerer.usc.edu/mailman/listinfo.cgi/robotics-worldwide&quot;&gt;robotics-worldwide mailing list&lt;/a&gt;. Same information as euRobotics with a larger audience.&lt;/li&gt;
-  &lt;li&gt;Don’t take your work &lt;a href=&quot;http://phdcomics.com/&quot;&gt;too seriously&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
 
-&lt;h1 id=&quot;explore-our-github-repo&quot;&gt;Explore our GitHub repo&lt;/h1&gt;
 
-&lt;p&gt;You will need an account on GitHub, so you can be added to the members of&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;
-&lt;a href=&quot;https://github.com/norlab-ulaval&quot; target=&quot;_blank&quot; class=&quot;btn&quot;&gt;
-&lt;img src=&quot;/images/logos/github.svg&quot; style=&quot;padding-right: 1em; width: 4em; -webkit-filter: invert(100%); filter: invert(100%);&quot; /&gt;
-norlab-ulaval
-&lt;/a&gt;
-&lt;/p&gt;
+&lt;a href=&quot;https://doi.ieeecomputersociety.org/10.1109/CRV50864.2020.00034&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&amp;nbsp;Publisher&lt;/i&gt;&lt;/a&gt;
+&amp;emsp;
 
-&lt;p&gt;Then, explore the following:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;amp;q=poster&amp;amp;type=&amp;amp;language=&quot;&gt;Scientific posters&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;amp;q=publication&amp;amp;type=&amp;amp;language=&quot;&gt;Scientific publications&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;amp;q=mastersProposal&amp;amp;type=&amp;amp;language=&quot;&gt;Master’s proposal&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;amp;q=mastersThesis&amp;amp;type=&amp;amp;language=&quot;&gt;Master’s thesis&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval/visualIdentity&quot;&gt;Different logos of the lab&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Read our &lt;a href=&quot;https://github.com/norlab-ulaval/latexGoodPractices/blob/master/preamble.tex&quot;&gt;Latex good practices&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;a class=&quot;details&quot; href=&quot;/bibliography/Baril2020/&quot;&gt; &lt;i class=&quot;fas fa-file-code&quot;&gt;&amp;nbsp;Bibtex source&lt;/i&gt; &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;–&amp;gt;&lt;/p&gt;</content><author><name>Vincent Grondin</name><email>vincent.grondin.2@ulaval.ca</email></author><summary type="html">Vincent Grondin is a Ph.D candidate supervised by Prof. Philippe Giguère at Université Laval, and he is a member of Norlab. He graduated with both a certificate in physics and a bachelor in electrical engineering from Université de Sherbrooke. During his bachelor, he was responsible for ensuring the control and simulation of a Hoverbike as a part of a higly-funded third year project. He also completed two internships at the Canadian Space Agency , where he developed a communication prototype with spatial recognition. Additionally, during an internship at the Speech and Audio Research Group Laboratory , he conducted research on the classification of speech and audio by using artificial intelligence (AI).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/v_grondin.jpg%22,%20%22teaser%22=%3E%22/people/v_grondin_avatar.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/v_grondin.jpg%22,%20%22teaser%22=%3E%22/people/v_grondin_avatar.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Vincent Grondin</title><link href="https://norlab.ulaval.ca/people/v_grondin_fr/" rel="alternate" type="text/html" title="Vincent Grondin" /><published>2021-07-27T00:00:00-04:00</published><updated>2021-07-27T00:00:00-04:00</updated><id>https://norlab.ulaval.ca/people/v_grondin_fr</id><content type="html" xml:base="https://norlab.ulaval.ca/people/v_grondin_fr/">&lt;p&gt;Vincent Grondin est un étudiant au doctorat à l’Université Laval sous la supervision du Pr. &lt;a href=&quot;../../people/p_giguere_fr&quot;&gt;Philippe Giguère&lt;/a&gt; et membre du laboratoire Norlab. Diplômé d’un certificat en physique et d’un baccalauréat en génie électrique à l’Université de Sherbrooke, il a occupé le poste de responsable en contrôle et asservissement d’un Hoverbike dans un projet majeur en ingénierie lors de sa dernière année au baccalauréat. Pendant ses études, il a réalisé deux stages à l’&lt;a href=&quot;https://www.asc-csa.gc.ca/fra/default.asp&quot; target=&quot;_blank&quot;&gt; Agence spatiale canadienne &lt;/a&gt; sur la recherche et développement d’un prototype de communication avec reconnaissance spatiale. Durant son stage au laboratoire &lt;a href=&quot;https://www.gel.usherbrooke.ca/audio/&quot; target=&quot;_blank&quot;&gt; Groupe de recherche sur la parole et l’audio &lt;/a&gt;, il a conduit une recherche sur la classification de la parole et l’audio à l’aide d’intelligence artificielle (IA).&lt;/p&gt;
 
-&lt;h1 id=&quot;little-tip-to-save-you-some-time&quot;&gt;Little tip to save you some time&lt;/h1&gt;
-&lt;p&gt;Create a new bookmark on you favorite web browser and copy-paste this script as the url:&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;javascript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://acces.bibl.ulaval.ca/login?qurl='&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;encodeURIComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);})());&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;If you click the bookmark when you are on a scientific article publisher website (e.g. Springer), it will log you into Ariane automatically. Ariane grants you access to the article without having to pay if the university has an agreement with the publisher.&lt;/p&gt;
+&lt;p&gt;Présentement, ses travaux de recherche se concentrent sur la simulation et la perception d’environnements par IA en milieux forestiers. Voici un exemple de détection automatique d’arbres:&lt;/p&gt;
 
-&lt;h1 id=&quot;be-social&quot;&gt;Be social&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Like our Facebook page &lt;a href=&quot;https://www.facebook.com/norlab.ulaval/&quot;&gt;norlab.ulaval&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Follow the LinkedIn page &lt;a href=&quot;https://www.linkedin.com/company/norlab/&quot;&gt;Norlab&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Subscribe to our YouTube channel &lt;a href=&quot;https://www.youtube.com/channel/UCh9G8xpr72lBiyWyBKXBTXA&quot;&gt;norlab&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Ask to be added on our ResearchGate &lt;a href=&quot;https://www.researchgate.net/lab/Northern-Robotics-Laboratory-Norlab-Francois-Pomerleau&quot;&gt;laboratory page&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;In general, reshare news from the lab to ensure maximum impact of our work&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="howto" /><category term="grants" /><category term="salary" /><category term="students" /><summary type="html">Welcome to the laboratory! It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3Enil,%20%22feature%22=%3Enil%7D" /></entry><entry><title type="html">Dominic Baril</title><link href="https://norlab.ulaval.ca/people/d_baril/" rel="alternate" type="text/html" title="Dominic Baril" /><published>2019-05-05T00:00:00+02:00</published><updated>2019-05-05T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/people/d_baril</id><content type="html" xml:base="https://norlab.ulaval.ca/people/d_baril/">&lt;p&gt;Dominic Baril is a master’s student at Norlab.
-He graduated in mechanical engineering at Sherbrooke University in 2018. To complete his bachelor’s, he worked on a major robotic project in collaboration with &lt;a href=&quot;https://www.exonetik.com/&quot; target=&quot;_blank&quot;&gt;Exonetik&lt;/a&gt;, a company that produces magnetorheological actuators. The project (named &lt;a href=&quot;https://www.facebook.com/expomegageniale/videos/2039870909411790/&quot; target=&quot;_blank&quot;&gt;ASIMOV&lt;/a&gt;) consisted in designing, manufacturing and controlling 2 identic and mechanically independent robotic arms. The arms are able to simultaneously reprodouce a haptic feeling in the other when touching objects. He also realised an internship in the &lt;a href=&quot;https://https://www.createk.co/&quot; target=&quot;_blank&quot;&gt;Createk&lt;/a&gt; laboratory under the supervision of Pr. &lt;a href=&quot;https://alexandregirard.ca/&quot; target=&quot;_blank&quot;&gt;Alexandre Girard&lt;/a&gt;. He was tasked with integrating a 1:10 scaled robotic car (based on the MIT’s &lt;a href=&quot;http://fast.scripts.mit.edu/racecar/&quot; target=&quot;_blank&quot;&gt;RACECAR&lt;/a&gt;). The car was outfitted with the standard autonomous car sensors and Dominic created a control architecture (using ROS) for the robot. 
-His work in Norlab will be related to the control of an autonomous robot in a harsh winter environment.&lt;/p&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/KAh_z77_4eM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h1 id=&quot;education&quot;&gt;Education&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Bachelor’s degree in mechanical Engineering at Sherbrooke University, 2018&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Dominic Baril</name><email>dominic.baril.1@ulaval.ca</email></author><summary type="html">Dominic Baril is a master’s student at Norlab. He graduated in mechanical engineering at Sherbrooke University in 2018. To complete his bachelor’s, he worked on a major robotic project in collaboration with Exonetik, a company that produces magnetorheological actuators. The project (named ASIMOV) consisted in designing, manufacturing and controlling 2 identic and mechanically independent robotic arms. The arms are able to simultaneously reprodouce a haptic feeling in the other when touching objects. He also realised an internship in the Createk laboratory under the supervision of Pr. Alexandre Girard. He was tasked with integrating a 1:10 scaled robotic car (based on the MIT’s RACECAR). The car was outfitted with the standard autonomous car sensors and Dominic created a control architecture (using ROS) for the robot. His work in Norlab will be related to the control of an autonomous robot in a harsh winter environment.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/d_baril.jpg%22,%20%22teaser%22=%3E%22/people/d_baril_avatar.jpg%22%7D" /></entry><entry><title type="html">Dominic Baril</title><link href="https://norlab.ulaval.ca/people/d_baril_fr/" rel="alternate" type="text/html" title="Dominic Baril" /><published>2019-05-05T00:00:00+02:00</published><updated>2019-05-05T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/people/d_baril_fr</id><content type="html" xml:base="https://norlab.ulaval.ca/people/d_baril_fr/">&lt;p&gt;Dominic Baril est un étudiant à la maîtrise au sein du Norlab.
-Il a gardué du baccalauréat en génie mécanique à l’Université de Sherbrooke en 2018. Afin de compléter son baccalauréat, il a participé à un projet majeur en robotique en collaboration avec &lt;a href=&quot;https://www.exonetik.com/&quot; target=&quot;_blank&quot;&gt;Exonetik&lt;/a&gt;, une entreprise qui produit des actionneurs à fluides magnétorhéologiques. Le projet (dénommé &lt;a href=&quot;https://www.facebook.com/expomegageniale/videos/2039870909411790/&quot; target=&quot;_blank&quot;&gt;ASIMOV&lt;/a&gt;) consistait en la conception, la fabrication et le contrôle de 2 bras robotiques identiques et mécaniquement indépendants. Les bras sont capables de simultanément reproduire un sentiment haptique dans l’autre lorsqu’ils touchent à des objets. Il a également réalisé un stage au sein du laboratoire &lt;a href=&quot;https://https://www.createk.co/&quot; target=&quot;_blank&quot;&gt;Createk&lt;/a&gt; sous la supervision du Pr. &lt;a href=&quot;https://alexandregirard.ca/&quot; target=&quot;_blank&quot;&gt;Alexandre Girard&lt;/a&gt;. Il avait la tâche d’intégrer une voiture robotique à échelle 1:10 (basée sur le &lt;a href=&quot;http://fast.scripts.mit.edu/racecar/&quot; target=&quot;_blank&quot;&gt;RACECAR&lt;/a&gt; du MIT). La voiture a été équipée avec les capteurs standards des voitures autonomes et Dominic a réalisé un architecture de contrôle (fonctionnant avec ROS) pour le robot.
-Son travail au Norlab sera en lien avec le contrôle d’un robot autonome en environnement hivernal difficile.&lt;/p&gt;
+  &lt;li&gt;M.Sc. en informatique (&lt;a href=&quot;https://norlab.ulaval.ca/accueil/&quot; target=&quot;_blank&quot;&gt; Norlab &lt;/a&gt;) - Université Laval (passage accéléré au doctorat), 2020&lt;/li&gt;
+  &lt;li&gt;B.Ing. en génie électrique - Université de Sherbrooke, 2018&lt;/li&gt;
+  &lt;li&gt;Certificat en physique - Université de Sherbrooke, 2014&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h1 id=&quot;education&quot;&gt;Education&lt;/h1&gt;
+&lt;h1 id=&quot;publications&quot;&gt;Publications&lt;/h1&gt;
+
+&lt;h2 class=&quot;bibliography&quot;&gt;Conference Articles&lt;/h2&gt;
+&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Baril2020&quot;&gt;Baril, D., Grondin, V., Deschenes, S., Laconte, J., Vaidis, M., Kubelka, V., Gallant, A., Giguere, P., &amp;amp; Pomerleau, F. (2020). Evaluation of Skid-Steering Kinematic Models for Subarctic Environments. &lt;i&gt;2020 17th Conference on Computer and Robot Vision (CRV)&lt;/i&gt;, 198–205. https://doi.org/10.1109/CRV50864.2020.00034&lt;/span&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;/pdf/Baril2020.pdf&quot;&gt;&lt;i class=&quot;fas fa-file-pdf&quot;&gt;&amp;nbsp;PDF&lt;/i&gt;&lt;/a&gt;
+&amp;emsp;
+
+
+
+&lt;a href=&quot;https://doi.ieeecomputersociety.org/10.1109/CRV50864.2020.00034&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&amp;nbsp;Publisher&lt;/i&gt;&lt;/a&gt;
+&amp;emsp;
+
+&lt;a class=&quot;details&quot; href=&quot;/bibliography/Baril2020/&quot;&gt; &lt;i class=&quot;fas fa-file-code&quot;&gt;&amp;nbsp;Bibtex source&lt;/i&gt; &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;–&amp;gt;&lt;/p&gt;</content><author><name>Vincent Grondin</name><email>vincent.grondin.2@ulaval.ca</email></author><summary type="html">Vincent Grondin est un étudiant au doctorat à l’Université Laval sous la supervision du Pr. Philippe Giguère et membre du laboratoire Norlab. Diplômé d’un certificat en physique et d’un baccalauréat en génie électrique à l’Université de Sherbrooke, il a occupé le poste de responsable en contrôle et asservissement d’un Hoverbike dans un projet majeur en ingénierie lors de sa dernière année au baccalauréat. Pendant ses études, il a réalisé deux stages à l’ Agence spatiale canadienne sur la recherche et développement d’un prototype de communication avec reconnaissance spatiale. Durant son stage au laboratoire Groupe de recherche sur la parole et l’audio , il a conduit une recherche sur la classification de la parole et l’audio à l’aide d’intelligence artificielle (IA).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/v_grondin.jpg%22,%20%22teaser%22=%3E%22/people/v_grondin_avatar.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/v_grondin.jpg%22,%20%22teaser%22=%3E%22/people/v_grondin_avatar.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Norlab robots</title><link href="https://norlab.ulaval.ca/research/norlab-robots/" rel="alternate" type="text/html" title="Norlab robots" /><published>2021-07-03T00:00:00-04:00</published><updated>2021-07-03T00:00:00-04:00</updated><id>https://norlab.ulaval.ca/research/norlab-robots</id><content type="html" xml:base="https://norlab.ulaval.ca/research/norlab-robots/">&lt;p&gt;The list of our robots is growing, see for yourself! We like them rugged bacause they often go outdoors, collecting datasets, capturing lidar maps and driving autonomously around the campus and in the Montmorency forest. The black sheep of this family is the robotic arm, but even that is one day going to end up attached to the Warthog driving in some bushes 😃&lt;/p&gt;
+
+&lt;h3 id=&quot;warthog&quot;&gt;&lt;center&gt;Warthog&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h3&gt;
+&lt;h5 id=&quot;large-all-terrain-unmanned-ground-vehicle-from-clearpath&quot;&gt;&lt;center&gt;Large, all-terrain unmanned ground vehicle from Clearpath&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h5&gt;
+
+&lt;p&gt;It can handle tough environments with its rugged build, low ground pressure, and traction tires, which allow effortless mobility in soft terrain. In the winter season, we exchange the wheels for tracks that allow it to drive on all sorts of snow. It is the optimal platform for the forest environment the Norlab is all about.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/projects/norlab_robots/warthog_03.jpg&quot; style=&quot;width: 50%; float: left; margin-right: 2em; margin-bottom: 1em&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Baccalauréat en génie mécanique à l’Université de Sherbrooke, 2018&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Dominic Baril</name><email>dominic.baril.1@ulaval.ca</email></author><summary type="html">Dominic Baril est un étudiant à la maîtrise au sein du Norlab. Il a gardué du baccalauréat en génie mécanique à l’Université de Sherbrooke en 2018. Afin de compléter son baccalauréat, il a participé à un projet majeur en robotique en collaboration avec Exonetik, une entreprise qui produit des actionneurs à fluides magnétorhéologiques. Le projet (dénommé ASIMOV) consistait en la conception, la fabrication et le contrôle de 2 bras robotiques identiques et mécaniquement indépendants. Les bras sont capables de simultanément reproduire un sentiment haptique dans l’autre lorsqu’ils touchent à des objets. Il a également réalisé un stage au sein du laboratoire Createk sous la supervision du Pr. Alexandre Girard. Il avait la tâche d’intégrer une voiture robotique à échelle 1:10 (basée sur le RACECAR du MIT). La voiture a été équipée avec les capteurs standards des voitures autonomes et Dominic a réalisé un architecture de contrôle (fonctionnant avec ROS) pour le robot. Son travail au Norlab sera en lien avec le contrôle d’un robot autonome en environnement hivernal difficile.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/d_baril.jpg%22,%20%22teaser%22=%3E%22/people/d_baril_avatar.jpg%22%7D" /></entry><entry><title type="html">How to set a static transform with our interactive RVIZ tool</title><link href="https://norlab.ulaval.ca/research/how-to-visually-setup-static-tf/" rel="alternate" type="text/html" title="How to set a static transform with our interactive RVIZ tool" /><published>2019-04-30T00:00:00+02:00</published><updated>2019-04-30T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/research/how-to-visually-setup-static-tf</id><content type="html" xml:base="https://norlab.ulaval.ca/research/how-to-visually-setup-static-tf/">&lt;p&gt;Sometimes, there is a need to quickly set up a static transform in ROS.
-To avoid manually searching for translation and rotation parameters, we have written this minimalistic tool that allows us to do it a more convenient, click-and-drag way.&lt;/p&gt;
+&lt;li&gt;Weight: 280 kg + payload (approx. 150 kg)&lt;/li&gt;
+&lt;li&gt;Size: 1.52 x 1.38 x 0.83 m&lt;/li&gt;
+&lt;li&gt;Max speed: 18 km/h&lt;/li&gt;
+&lt;li&gt;Battery: 12x lead-acid, 48 V, 2.5 h&lt;/li&gt;
+&lt;li&gt;Onboard computers: 2x automotive PC, 1x NVidia Xavier planned&lt;/li&gt;
+&lt;li&gt;Sensors: 2x 16-beam lidar, 1x 32-beam lidar, IMU, 2x RTK-GPS, 1x RGB camera&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;For our research, the warthog is equipped with tree RS-LIDARs from RoboSense, a Dalsa camera for collecting visual datasets, two GPS receivers for reference positioning and an IMU for precise attitude estimation. There are also two onboard PCs, one handling low-level drivers of the motor controllers and one dedicated for high-level tasks such as mapping and navigation. They run Ubuntu with ROS.&lt;/p&gt;
 
-&lt;p&gt;The physical configuration of a robot can change or a new sensor is added.
-Since this configuration is reflected by the ROS TF system, the corresponding static transform needs to be updated.
-The classical approach would be trial-and-error with the comand line &lt;code class=&quot;highlighter-rouge&quot;&gt;rosrun tf static_transform_publisher [params]&lt;/code&gt;, looking for the right numbers.
-It is tedious, unnecessary and there is a better way to do this.&lt;/p&gt;
+&lt;p style=&quot;clear:both;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;solution---interactive-static-transform-tool&quot;&gt;Solution - Interactive Static Transform tool&lt;/h1&gt;
+&lt;h3 id=&quot;husky&quot;&gt;&lt;center&gt;Husky&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h3&gt;
+&lt;h5 id=&quot;skid-steered-robotic-development-platform-from-clearpath&quot;&gt;&lt;center&gt;Skid-steered robotic development platform from Clearpath&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h5&gt;
 
-&lt;p&gt;Following the &lt;a href=&quot;http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started&quot;&gt;RVIZ Interactive Marker Tutorial&lt;/a&gt;, a simple tool was written.
-It helps in finding a transformation between two TF frames by providing
-an RVIZ interactive marker. 
-Its usage is straightforward:&lt;/p&gt;
+&lt;p&gt;The Husky’s rugged construction and high-torque drivetrain make it suitable for indoor and outdoor, moderately uneven terrains. Husky carries cameras, a LIDAR, and an IMU. It was the Norlab’s workhorse in the DARPA SubT Urban circuit and before that, the first explorer of the Montmorency forest.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/projects/norlab_robots/husky.jpg&quot; style=&quot;width: 50%; float: right; margin-left: 2em; margin-bottom: 1em&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Weight: 62 kg&lt;/li&gt;
+&lt;li&gt;Size: 0.99 x 0.67 x 0.39 m&lt;/li&gt;
+&lt;li&gt;Max speed: 3.6 km/h&lt;/li&gt;
+&lt;li&gt;Battery: 2x lead-acid, 24 V, 2 h&lt;/li&gt;
+&lt;li&gt;Onboard computers: 1x Dell 3070, 1x NVidia Xavier&lt;/li&gt;
+&lt;li&gt;Sensors: 1x 16-beam lidar, IMU, 6x RGB camera, 1x RGB-D camera&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;clear:both;&quot;&gt;Its payload has been designed by Norlab's students for the DARPA SubT competition. The ability to explore the environment by an omnidirectional set of high-resolution cameras, by a lidar and by an additional RGB-D sensor makes this platform ideal for developing and testing machine-learning and SLAM algorithms. Although not perfect on obstacles and stairs, it can traverse rough terrain, and thus it is going to serve as a dataset-collecting platform of the lab. &lt;br /&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;marmotte-hd2&quot;&gt;&lt;center&gt;Marmotte (HD2)&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h3&gt;
+&lt;h5 id=&quot;tracked-robotic-development-platform-from-superdroid-robots&quot;&gt;&lt;center&gt;Tracked robotic development platform from SuperDroid Robots&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h5&gt;
+
+&lt;p&gt;The tracks of this platform are driven by powerful geared motors through heavy-duty chains. Its frame is ribbed and gusseted to make it rigid, and altogether it has a sturdy and solid chassis that will withstand rough treatment. Its size allows it to easily climb obstacles, ascend stairs, and drive over most terrains. In 2021, it is Norlab’s wild card in the DARPA SubT 🔥&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/projects/norlab_robots/Marmotte.jpg&quot; style=&quot;width: 50%; float: left; margin-right: 2em; margin-bottom: 1em&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Weight: 57 kg&lt;/li&gt;
+&lt;li&gt;Size: 1.00 x 0.65 x 0.50 m&lt;/li&gt;
+&lt;li&gt;Max speed: 4.0 km/h&lt;/li&gt;
+&lt;li&gt;Battery: 2x LiFePo4, 25.6 V, 2 h&lt;/li&gt;
+&lt;li&gt;Onboard computers: 1x Dell 3070, 1x NVidia Xavier&lt;/li&gt;
+&lt;li&gt;Sensors: 1x 16-beam lidar, IMU, 6x RGB camera, 1x RGB-D camera&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;clear:both;&quot;&gt;This robot is Husky's young sister (Marmotte is &lt;i&gt;she&lt;/i&gt;), equipped with the same sensor suite to accelerate software development for these two robots. Marmotte's advantage is the fact that it can climb stairs and get to places Husky cannot.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;vaul-robot&quot;&gt;&lt;center&gt;Vaul robot&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h3&gt;
+&lt;h5 id=&quot;heavy-unmanned-ground-vehicle-from-superdroid-customized-by-students-to-be-a-snowplow&quot;&gt;&lt;center&gt;Heavy unmanned ground vehicle from SuperDroid, customized by students to be a snowplow&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h5&gt;
+
+&lt;p&gt;The weight of this robot is perfect to plow snow on the sidewalks. The frame is made from aluminum, and four powerful geared motors allow the robot to carry a heavy payload. Students of the robotic club VAUL made a custom frame to carry the sensors and to protect the motors and batteries from the cold during the winter operations. With its plow, the robot can autonomously push around 40 kg of snow.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/projects/norlab_robots/vaul.jpg&quot; style=&quot;width: 50%; float: right; margin-left: 2em; margin-bottom: 1em&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Weight: 160 kg&lt;/li&gt;
+&lt;li&gt;Size: 1.00 x 1.5 x 1.5 m&lt;/li&gt;
+&lt;li&gt;Max speed: 7.2 km/h&lt;/li&gt;
+&lt;li&gt;Battery: 4x Sealed Lead Acid Battery, 2x24V, 2h&lt;/li&gt;
+&lt;li&gt;Onboard computers: 1x Dell 3070, 1xNVidia Xavier AGX&lt;/li&gt;
+&lt;li&gt;Sensors: 1x 16-beam lidar, IMU, 3x RGB camera, 2xReach M+ RTK-GPS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;clear:both;&quot;&gt;With its diversified sensor suite, this snowplow can operate autonomously in diverse types of weather. The robot participated in its first Autonomous Snowplow Competition in Minneapolis in January 2020.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;universal-robots-ur10e&quot;&gt;&lt;center&gt;Universal Robots' UR10e&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h3&gt;
+&lt;h5 id=&quot;the-ur10e-is-an-extraordinarily-versatile-collaborative-industrial-robot-from-universal-robots&quot;&gt;&lt;center&gt;The UR10e is an extraordinarily versatile collaborative industrial robot from Universal Robots.&lt;center&gt;&lt;/center&gt;&lt;/center&gt;&lt;/h5&gt;
+
+&lt;p&gt;Our robot is equipped with a Robotiq 2-finger adaptive gripper. With a fixed or mounted-on-the-wrist camera, computer-vision-enabled applications make the UR10e perfect for pick-and-place and bin-picking applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/projects/norlab_robots/Universal_robot_small.jpg&quot; style=&quot;width: 50%; float: left; margin-right: 2em; margin-bottom: 1em&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reach: 1300 mm&lt;/li&gt;
+&lt;li&gt;Payload: 12.5 kg&lt;/li&gt;
+&lt;li&gt;Footprint: diameter 190 mm&lt;/li&gt;
+&lt;li&gt;Repeatability: ±0.05 mm, with payload&lt;/li&gt;
+&lt;li&gt;Equipped with sensitive force &amp;amp; torque sensor&lt;/li&gt;
+&lt;li&gt;Our end-effector: Robotiq 2-finger adaptive gripper&lt;/li&gt;
+&lt;li&gt;Weight: 33.5 kg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;clear:both;&quot;&gt;The arm is equipped with 2D and 3D vision systems backed by powerful AI to fully unlock the potential of the robot to use state-of-the-art algorithms for pattern detection and object recognition, and design smart policies for manipulation tasks and autonomous grasping.&lt;br /&gt;&lt;/p&gt;</content><author><name>Jana Bartakova</name></author><category term="research" /><category term="project" /><category term="hd2" /><category term="husky" /><category term="robot" /><category term="warthog" /><summary type="html">The list of our robots is growing, see for yourself! We like them rugged bacause they often go outdoors, collecting datasets, capturing lidar maps and driving autonomously around the campus and in the Montmorency forest. The black sheep of this family is the robotic arm, but even that is one day going to end up attached to the Warthog driving in some bushes 😃</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/projects/norlab_robots/feature_collage.jpg%22,%20%22teaser%22=%3E%22/projects/norlab_robots/teaser.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/projects/norlab_robots/feature_collage.jpg%22,%20%22teaser%22=%3E%22/projects/norlab_robots/teaser.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Lie theory cheatsheet</title><link href="https://norlab.ulaval.ca/research/LieCheatsheet/" rel="alternate" type="text/html" title="Lie theory cheatsheet" /><published>2021-06-25T00:00:00-04:00</published><updated>2021-06-25T00:00:00-04:00</updated><id>https://norlab.ulaval.ca/research/LieCheatsheet</id><content type="html" xml:base="https://norlab.ulaval.ca/research/LieCheatsheet/">&lt;h1 id=&quot;lie-theory-in-robotics&quot;&gt;Lie theory in robotics&lt;/h1&gt;
+
+&lt;p&gt;In the last years, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Lie_group&quot;&gt;Lie theory&lt;/a&gt; started to gain momentum and proved to be a powerful tool in the domain of state estimation.
+The theory was transposed in robotics terms in &lt;a href=&quot;http://asrl.utias.utoronto.ca/~tdb/&quot;&gt;“State Estimation for Robotics”&lt;/a&gt; by Tim Barfoot. Also, a micro Lie theory was proposed by &lt;a href=&quot;https://arxiv.org/abs/1812.01537&quot;&gt;Sola et al.&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using the notations of Tim Barfoot’s book, we designed a cheatsheet synthesizing the main notions to remember when working with Lie groups.&lt;/p&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval/cheatsheet_LieAlgebra/raw/master/main.pdf&quot;&gt;Download the pdf version of the cheatsheet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/norlab-ulaval/cheatsheet_LieAlgebra&quot;&gt;Github repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/norlab-ulaval/cheatsheet_LieAlgebra/raw/master/preview-1.png&quot; style=&quot;width: 100%&quot; /&gt;&lt;/p&gt;</content><author><name>Johann Laconte</name><email>laconte.johann@gmail.com</email></author><category term="research" /><category term="howto" /><category term="Cheatsheet" /><category term="Lie" /><summary type="html">Lie theory in robotics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/icp-lie_teaser.jpg%22,%20%22feature%22=%3Enil%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22publications/icp-lie_teaser.jpg%22,%20%22feature%22=%3Enil%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Norlab in media!</title><link href="https://norlab.ulaval.ca/research/media/" rel="alternate" type="text/html" title="Norlab in media!" /><published>2021-06-02T00:00:00-04:00</published><updated>2021-06-02T00:00:00-04:00</updated><id>https://norlab.ulaval.ca/research/media</id><content type="html" xml:base="https://norlab.ulaval.ca/research/media/">&lt;p&gt;We are happy that Norlab is being noticed in media. See what they have written about us.&lt;/p&gt;
+
+&lt;p&gt;IEEE Spectrum:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/darpa-subt-meet-the-first-nine-teams&quot;&gt;DARPA Subterranean Challenge: Meet the First 9 Teams&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-software/darpa-subt-cave-circuit-competition&quot;&gt;17 Teams to Take Part in DARPA’s SubT Cave Circuit Competition&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/late-nights-cool-hacks-and-more-stories-from-the-darpa-subt-urban-circuit&quot;&gt;Late Nights, Cool Hacks, and More Stories From the DARPA SubT Urban Circuit&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/robotics-teams-prepare-darpa-subt-challenge-urban-circuit&quot;&gt;How Robotics Teams Prepared for DARPA’s SubT Challenge: Urban Circuit&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;IEEE Spectrum – Video Friday:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-robotic-eyeball-camera&quot;&gt;Teaser – SNOW milestone 3 achieved&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-aquatic-snakebotics&quot;&gt;DARPA SubT – Urban challenge under 10 min&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-software/video-friday-starship-robots-1-million-deliveries&quot;&gt;Driving our robot on the campus after the snow storm&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-mit-mini-cheetah-robots-naver-labs&quot;&gt;Uncut – A Christmas story&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-agility-robotics-robot-production&quot;&gt;Can you throw your robot into a lake?&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-mesmer-humanoid-robot&quot;&gt;Fallen tree crossing&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-software/video-friday-3d-printed-liquid-crystal-elastomer&quot;&gt;SNOW control intro video&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-quadruped-robot-locomotion-skills&quot;&gt;CTU-CRAS-NORLAB: DARPA Subterranean Challenge - Urban Circuit&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://spectrum.ieee.org/automaton/robotics/robotics-hardware/video-friday-robots-wish-happy-holidays&quot;&gt;Robotic Christmas Spirit – Norlab 2019&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DARPA Subterranean Challenge:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.darpa.mil/news-events/2021-05-03&quot;&gt;DARPA Subterranean Challenge Announces Systems Competition Teams for Final Event&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.darpa.mil/news-events/2020-11-17&quot;&gt;Teams Coordinated Robotics, BARCS, and Dynamo On Top in DARPA Subterranean Challenge Cave Circuit Virtual Competition&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.darpa.mil/news-events/2020-09-28a&quot;&gt;Subterranean Challenge Identifies Qualified Teams for Cave Circuit Virtual Competition&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.darpa.mil/news-events/2020-02-27&quot;&gt;Teams CoSTAR and BARCS Take Top Spots in DARPA Subterranean Challenge Urban Circuit&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.darpa.mil/news-events/2020-01-10&quot;&gt;DARPA Names Qualifiers for the Subterranean Challenge Urban Circuit&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Univesité Laval:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.fsg.ulaval.ca/faculte/actualites/norlab-et-ses-partenaires-se-distinguent-au-darpa-subterranean-challenge-3400/&quot;&gt;Norlab et ses partenaires se distinguent au DARPA Subterranean Challenge&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Executive Gov:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.executivegov.com/2021/05/darpa-picks-eight-teams-for-subterranean-challenge-robot-competition-finals/&quot;&gt;DARPA Picks Eight Teams for Subterranean Challenge Robot Competition Finals&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Center for Robotics and Autonomous Systems, Czech Technical University:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;http://robotics.fel.cvut.cz/cras/darpa-subt/&quot;&gt;DARPA Sub-T&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Robots &amp;amp; Automation News:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://roboticsandautomationnews.com/2021/05/03/darpa-selects-eight-teams-for-3-5-million-prize-competition/42994/&quot;&gt;Darpa selects eight teams for $3.5 million prize competition&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Geek Wire:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.geekwire.com/2020/robots-masters-take-nuclear-plant-darpas-subterranean-challenge/&quot;&gt;Robots and their masters take over nuclear plant for DARPA’s Subterranean Challenge&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Vidette:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.thevidette.com/news/robots-creeping-around-satsop-hoping-to-find-millions-in-prize-money/&quot;&gt;Robots creeping around Satsop hoping to find millions in prize money&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.thevidette.com/news/accelerating-innovation-is-one-goal-of-darpa-with-contest/&quot;&gt;Accelerating innovation is one goal of DARPA with contest&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Propulsion Québec – En Route! :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://propulsionquebec.com/en-route/le-developpement-durable-au-coeur-de-notre-enseignement/&quot;&gt;Laboratoire de robotique boréale (Norlab)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Jana Bartakova</name></author><category term="research" /><category term="project" /><category term="media" /><summary type="html">We are happy that Norlab is being noticed in media. See what they have written about us.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3Enil,%20%22teaser%22=%3E%22norlab_in_media.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3Enil,%20%22teaser%22=%3E%22norlab_in_media.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to publish your preprints on Arxiv</title><link href="https://norlab.ulaval.ca/research/publish-prepints-arxiv/" rel="alternate" type="text/html" title="How to publish your preprints on Arxiv" /><published>2021-03-11T00:00:00-05:00</published><updated>2021-03-11T00:00:00-05:00</updated><id>https://norlab.ulaval.ca/research/publish-prepints-arxiv</id><content type="html" xml:base="https://norlab.ulaval.ca/research/publish-prepints-arxiv/">&lt;p&gt;Before submitting a preprint to arXiv, make sure the publisher permits preprints.
+In general, they require that:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Set your parent and child frame names in the &lt;a href=&quot;https://github.com/norlab-ulaval/norlab_imu_tools/blob/master/launch/interactive_static_transform_publisher.launch&quot;&gt;launch file&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Run the launch file and also open the RVIZ.&lt;/li&gt;
-  &lt;li&gt;The initial transformation is an identity, but you can modify it by displaying
-the interactive marker and moving it around.&lt;/li&gt;
-  &lt;li&gt;The marker also offers a context menu, the only command which is there
-prints the current transform value in the form of the &lt;code class=&quot;highlighter-rouge&quot;&gt;static_transform_publisher&lt;/code&gt;
-rosrun command.&lt;/li&gt;
+  &lt;li&gt;The authors disclose the existence of the preprint at submission.&lt;/li&gt;
+  &lt;li&gt;Once an article is published, the preprint should link to the published version (typically via DOI or URL).&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The launch file and the code is placed within the &lt;a href=&quot;https://github.com/norlab-ulaval/norlab_imu_tools&quot;&gt;norlab_imu_tools&lt;/a&gt; package:&lt;/p&gt;
+&lt;p&gt;For IEEE, see &lt;a href=&quot;https://journals.ieeeauthorcenter.ieee.org/become-an-ieee-journal-author/publishing-ethics/guidelines-and-policies/post-publication-policies/&quot;&gt;IEEE publication Policies&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;launch&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;node&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pkg=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;norlab_imu_tools&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;interactive_static_transform_publisher.py&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;interactive_static_transform_publisher_node&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;output=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;screen&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;child_frame&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;moving_frame&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent_frame&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;base_link&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tf_publish_period_in_sec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.1&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/node&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/launch&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;For other publishers, see &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_academic_publishers_by_preprint_policy&quot;&gt;List of academic publishers by preprint policy&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;The final transform output can be copied and pasted into a terminal or just used to set a new launch file:&lt;/p&gt;
+&lt;h1 id=&quot;submitting-to-arxiv&quot;&gt;Submitting to arXiv&lt;/h1&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[INFO] [1556661102.899894]: The equivalent static transform command:
-[INFO] [1556661102.902316]: rosrun tf static_transform_publisher 1.92549085617 0.0 1.12673556805 0.327530413866 -0.155546739697 -0.399795621634 0.841839015484 base_link moving_frame 100
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Vladimír Kubelka</name><email>vladimir.kubelka.1@ulaval.ca</email></author><category term="howto" /><category term="ros" /><category term="transform" /><category term="rviz" /><summary type="html">Sometimes, there is a need to quickly set up a static transform in ROS. To avoid manually searching for translation and rotation parameters, we have written this minimalistic tool that allows us to do it a more convenient, click-and-drag way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22/rviz_interactive_tf_tool_teaser.jpg%22,%20%22feature%22=%3E%22/rviz_interactive_tf_tool.jpg%22%7D" /></entry><entry><title type="html">Forest Mapping</title><link href="https://norlab.ulaval.ca/research/forest-mapping/" rel="alternate" type="text/html" title="Forest Mapping" /><published>2019-04-17T00:00:00+02:00</published><updated>2019-04-17T00:00:00+02:00</updated><id>https://norlab.ulaval.ca/research/forest-mapping</id><content type="html" xml:base="https://norlab.ulaval.ca/research/forest-mapping/">&lt;h1 id=&quot;quick-facts&quot;&gt;Quick facts:&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;1.4 hectares of forest mapped with a &lt;a href=&quot;https://www.clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/&quot;&gt;Clearpath Husky&lt;/a&gt; and a &lt;a href=&quot;https://velodynelidar.com/hdl-32e.html&quot;&gt;Velodyne HDL-32E&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;943 trees were manually segmented in point clouds, and their diameter and species was identified on the field.&lt;/li&gt;
-  &lt;li&gt;Biggest dataset for 3D forest mapping and tree diameter measurements&lt;/li&gt;
-  &lt;li&gt;We tested various diameter estimation methods&lt;/li&gt;
-  &lt;li&gt;Part of the &lt;a href=&quot;https://www.researchgate.net/project/Automated-forestry-and-logging-operations&quot;&gt;Automated Forestry and Logging Operations project&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Our preprint is available &lt;a href=&quot;https://arxiv.org/abs/1904.05281&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Register at &lt;a href=&quot;arxiv.org&quot;&gt;arXiv&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Install &lt;a href=&quot;https://pypi.org/project/arxiv-collector/&quot;&gt;arxiv-collector&lt;/a&gt;:
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;arxiv-collector	
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;In case of problems with the installation, you can download the standalone python file at this &lt;a href=&quot;https://github.com/djsutherland/arxiv-collector&quot;&gt;repository&lt;/a&gt;.
+ You will also need a working installation of latexmk, see the &lt;a href=&quot;https://pypi.org/project/arxiv-collector/#requirements&quot;&gt;documentation&lt;/a&gt; if it is not already installed in your system.
+ You can also add the script directly to an &lt;a href=&quot;www.overleaf.com&quot;&gt;Overleaf&lt;/a&gt; project and run it there for the same effect, please refer to the &lt;a href=&quot;https://pypi.org/project/arxiv-collector/#using-directly-on-overleaf&quot;&gt;GitHub repository&lt;/a&gt; for instructions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Execute arxiv-collector in the root directory of the Latex project:
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; arxiv-collector root.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;If using overleaf, arxiv-collector can be used online, see the &lt;a href=&quot;https://pypi.org/project/arxiv-collector/#using-directly-on-overleaf&quot;&gt;documentation&lt;/a&gt;.
+ In both cases, an archive &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arxiv.tar.gz&lt;/code&gt; will be created.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In your &lt;a href=&quot;https://arxiv.org/user/&quot;&gt;user page&lt;/a&gt;, click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START NEW SUBMISSION&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Review the user information and choose a license for your article. Be aware that some publishers may accept preprints on the condition that a specific license is used. In general, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CC BY: Creative Commons Attribution&lt;/code&gt; licence is fine.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose a primary classification for the submission. Most of the time, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Computer Science&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Robotics&lt;/code&gt; is a good choice.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Next&lt;/code&gt; and upload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arxiv.tab.gz&lt;/code&gt; created beforehand. Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Continue:Process Files&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the processing went well, you should see a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Preview your paper&lt;/code&gt; button. Click on it and check that the paper did compile properly (pay attention to the figures and equations).
+  If the processing yields error, which is quite frequent, see below for some troubleshooting.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next page, fill the metadata of the paper. Do not forget to fill the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Comments&lt;/code&gt; field with additional information asked from the publisher. You can also specify that the paper has been submitted to the conference/journal.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Leave blank most of the last fields (i.e. Report Number, Journal Reference, DOI, ACM class, MSC class). You will be able to update these after the paper is published in the conference/journal.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Preview your submission and submit. It should take about a day for the paper to appear on arxiv.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once the paper is on arxiv, an email will be sent to you with a password. Send it to your co-authors so that they can claim ownership of the paper as well.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Do not forget that once the paper is accepted in the conference/journal, you need to update the&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Comment&lt;/code&gt; &lt;strong&gt;field on arXiv with the publisher’s copyright.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h1 id=&quot;video&quot;&gt;Video&lt;/h1&gt;
-&lt;!-- blank line --&gt;
-&lt;figure class=&quot;video_container&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dJ8eIOvcGPw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/figure&gt;
-&lt;!-- blank line --&gt;
+&lt;h1 id=&quot;troubleshooting-arxiv-compilation&quot;&gt;Troubleshooting: arXiv Compilation&lt;/h1&gt;
+&lt;p&gt;Most of the time, the compilation errors come from clashes in packages versions.
+An easy solution is to include the packages that may cause errors in the submission so that they are used in the compilation instead of the arXiv server’s packages.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Locate the package that cause errors in your system by adding the line &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\listfiles&lt;/code&gt; in your main latex file, and compile.&lt;/li&gt;
+  &lt;li&gt;Open the log file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root.log&lt;/code&gt; and search for the packages. You should find lines containing the paths to the packages. For instance:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Copy the packages in the working directory and execute &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arxiv-collector root.tex&lt;/code&gt;. The packages are now included in the archive.&lt;/li&gt;
+  &lt;li&gt;Re-upload the archive to arXiv and process the files.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h1 id=&quot;publications&quot;&gt;Publications&lt;/h1&gt;
+&lt;h2 id=&quot;list-of-known-errors-and-solutions&quot;&gt;List of known errors and solutions&lt;/h2&gt;
+&lt;h3 id=&quot;package-biblatex-ieee-error-failed-to-update-citation-style&quot;&gt;Package biblatex-ieee Error: Failed to update citation style&lt;/h3&gt;
+&lt;p&gt;Locate and include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ieee.bbx&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ieee.cbx&lt;/code&gt; in the working directory.&lt;/p&gt;</content><author><name>Johann Laconte</name><email>laconte.johann@gmail.com</email></author><category term="research" /><category term="howto" /><category term="arxiv" /><category term="preprint" /><summary type="html">Before submitting a preprint to arXiv, make sure the publisher permits preprints. In general, they require that:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22/logos/arxiv_logo-400x200.png%22,%20%22feature%22=%3E%22/logos/arxiv_logo-1200x329.png%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22/logos/arxiv_logo-400x200.png%22,%20%22feature%22=%3E%22/logos/arxiv_logo-1200x329.png%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Four internships in robotics for the summer 2021 all taken!</title><link href="https://norlab.ulaval.ca/news/internships/" rel="alternate" type="text/html" title="Four internships in robotics for the summer 2021 all taken!" /><published>2021-02-04T00:00:00-05:00</published><updated>2021-02-04T00:00:00-05:00</updated><id>https://norlab.ulaval.ca/news/internships</id><content type="html" xml:base="https://norlab.ulaval.ca/news/internships/">&lt;p&gt;Norlab is opening four internships covering multiple fields of study for this summer.
+&lt;del&gt;Apply as soon as you can, we are closing the openings soon.&lt;/del&gt;
+Here is the list of opportunities:&lt;/p&gt;
 
-&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Tremblay2019&quot;&gt;Tremblay, J.-F., Béland, M., Pomerleau, F., Gagnon, R., &amp;amp; Giguère, P. (2019). Automatic 3D Mapping for Tree Diameter Measurements in Inventory Operations. In &lt;i&gt;preprint, ArXiv. Submitted to Field and Service Robotics (FSR)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Tremblay2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Jean-François Tremblay</name></author><category term="project" /><category term="mapping" /><category term="forestry" /><category term="lidar" /><summary type="html">Quick facts: 1.4 hectares of forest mapped with a Clearpath Husky and a Velodyne HDL-32E 943 trees were manually segmented in point clouds, and their diameter and species was identified on the field. Biggest dataset for 3D forest mapping and tree diameter measurements We tested various diameter estimation methods Part of the Automated Forestry and Logging Operations project Our preprint is available here</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22projects/forest_mapping_feature.jpg%22,%20%22teaser%22=%3E%22projects/forest_mapping_teaser.jpg%22,%20%22thumb%22=%3Enil%7D" /></entry><entry><title type="html">Three articles accepted at ICRA 2019!</title><link href="https://norlab.ulaval.ca/news/icra19/" rel="alternate" type="text/html" title="Three articles accepted at ICRA 2019!" /><published>2019-03-04T00:00:00+01:00</published><updated>2019-03-04T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/news/icra19</id><content type="html" xml:base="https://norlab.ulaval.ca/news/icra19/">&lt;p&gt;We are happy to announce that we have three accepted publications at the &lt;a href=&quot;https://www.icra2019.org/&quot;&gt;2019 International Conference on Robotics and Automation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All the positions have been filled, but keep an eye on the Norlab website, there will be more in future!&lt;/p&gt;
 
-&lt;p&gt;We will present our latest results on lidar modeling &lt;a href=&quot;#Laconte2019&quot;&gt;(Laconte, Deschênes, Labussière, &amp;amp; Pomerleau, 2019)&lt;/a&gt;, learning algorithm for covariance estimation &lt;a href=&quot;#Landry2019&quot;&gt;(Landry, Pomerleau, &amp;amp; Giguère, 2019)&lt;/a&gt;, and a survey on different robust cost functions applied to ICP (Iterative Closest Point) &lt;a href=&quot;#Babin2019&quot;&gt;(Babin, Giguère, &amp;amp; Pomerleau, 2019)&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;intern-1---not-available-anymore&quot;&gt;Intern 1 - Not available anymore&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;computer science, software engineering, computer engineering&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;More details, and hopefully videos to come!&lt;/p&gt;
+&lt;p&gt;This internship is part of the SNOW (Self-driving Navigation Optimized for Winter) project, which aims at adapting autonomous navigation technologies to environments affected by winter. As part of his mandate, the student will develop an open library to predict the movements of a mobile robot. Several prototype algorithms have been analyzed in a Python Notebook, and must now be coded cleanly to allow real-time computation on a moving robot. The goal of the library is to allow researchers in the laboratory to do experiments faster. Ultimately, these experiments will allow mobile robots to adapt to changes in traction caused by snow cover during autonomous navigation.&lt;/p&gt;
 
-&lt;h1 id=&quot;our-articles&quot;&gt;Our articles&lt;/h1&gt;
+&lt;p&gt;The trainee will be supervised by a PhD student specializing in control, allowing the student to focus on software development while acquiring practical robotics skills. The student will also be expected to support the team’s efforts in robot integration and field deployments. The intern will have access to state-of-the-art equipment and a 500 kg robot. The library will be publicly hosted on the lab’s GitHub and will be integrated with ROS (Robot Operating System).&lt;/p&gt;
 
-&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Landry2019&quot;&gt;Landry, D., Pomerleau, F., &amp;amp; Giguère, P. (2019). CELLO-3D: Estimating the Covariance of ICP in the Real World. In &lt;i&gt;Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Landry2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Babin2019&quot;&gt;Babin, P., Giguère, P., &amp;amp; Pomerleau, F. (2019). Analysis of Robust Functions for Registration Algorithms. In &lt;i&gt;Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Babin2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Laconte2019&quot;&gt;Laconte, J., Deschênes, S.-P., Labussière, M., &amp;amp; Pomerleau, F. (2019). Lidar Measurement Bias Estimation via Return Waveform Modelling in a Context of 3D Mapping. In &lt;i&gt;Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Laconte2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="conference" /><summary type="html">We are happy to announce that we have three accepted publications at the 2019 International Conference on Robotics and Automation.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22teaser%22=%3E%22/news/icra19/icra19_teaser.jpg%22%7D" /></entry><entry><title type="html">Vladimír Kubelka</title><link href="https://norlab.ulaval.ca/people/v_kubelka/" rel="alternate" type="text/html" title="Vladimír Kubelka" /><published>2019-02-21T00:00:00+01:00</published><updated>2019-02-21T00:00:00+01:00</updated><id>https://norlab.ulaval.ca/people/v_kubelka</id><content type="html" xml:base="https://norlab.ulaval.ca/people/v_kubelka/">&lt;p&gt;Vladimír has received his master’s degree in Cybernetics and Robotics from the Czech Technical University in Prague (2013). The experiments for the master’s thesis were performed at the ASL lab (ETH Zurich) during his visiting student internship. After that, he continued as a Ph.D. student at CTU and focused on the problem of data fusion and state estimation for ground robots in harsh conditions. He had the opportunity to participate in two EU-funded  search and rescue projects &lt;a href=&quot;http://www.nifti.eu/&quot; target=&quot;_blank&quot;&gt;NIFTi&lt;/a&gt; and &lt;a href=&quot;http://www.tradr-project.eu/&quot; target=&quot;_blank&quot;&gt;TRADR&lt;/a&gt;. These projects offered real-world scenarios to test the localization algorithms. The main challenge were sensor outages (because of dark areas, smoke), unstable terrain and semi-structured environments (e.g., earthquake aftermath). He defended his Ph.D. thesis in 2018 (supervised by &lt;a href=&quot;https://sites.google.com/site/reinsmic&quot; target=&quot;_blank&quot;&gt;Michal Reinstein&lt;/a&gt; and &lt;a href=&quot;http://cmp.felk.cvut.cz/~svoboda/&quot; target=&quot;_blank&quot;&gt;Tomáš Svoboda&lt;/a&gt;) and enrolled as a postdoc fellow with the NORLAB. The Canadian winter brings new challenges for the ground mobile robots: deep snow, adversary conditions for optical sensors and changing terrain caused by wind and blizzards.&lt;/p&gt;
+&lt;p&gt;For contextual information, see &lt;a href=&quot;../../research/snow/&quot;&gt;the project page on SNOW&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;His research topics are sensor fusion and state estimation for mobile ground robots. He is interested in the problems related to deployment of robots in harsh environments.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;intern-2---not-available-anymore&quot;&gt;Intern 2 - Not available anymore&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;computer science, software engineering, computer engineering&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;education&quot;&gt;Education&lt;/h1&gt;
+&lt;p&gt;The laboratory is continuously developing several 3D mapping solutions for autonomous vehicles. Once the robot is on the move, it is relatively easy to locate it on a map. However, the laboratory has no software tools to relocate a robot if a map is reused.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://drive.google.com/file/d/12CeiSDOmbEq74qiiiJG8GhfCNXyB24Cp/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;Ph.D.&lt;/a&gt; in Artificial Intelligence and Biocybernetics - &lt;a href=&quot;https://www.cvut.cz/en&quot; target=&quot;_blank&quot;&gt;CTU in Prague&lt;/a&gt;, 2018&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://drive.google.com/file/d/1kA04kmKFjoW7k5Jas_8xn0ivKFFsQRWb/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;Ing.&lt;/a&gt; in Cybernetics and Robotics (Air and Space Systems) - &lt;a href=&quot;https://www.cvut.cz/en&quot; target=&quot;_blank&quot;&gt;CTU in Prague&lt;/a&gt;, 2013&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://drive.google.com/file/d/18vtdAQDF4s1qFMwPujufjYuyXQ_VlfzI/view?usp=sharing&quot; target=&quot;_blank&quot;&gt;Bc.&lt;/a&gt; in Electrical Engineering (Cybernetics and Measurement) - &lt;a href=&quot;https://www.cvut.cz/en&quot; target=&quot;_blank&quot;&gt;CTU in Prague&lt;/a&gt;, 2011&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;The objective of the internship is to develop a software to relocate a robot in a given 3D map. The first step will be to relocalize the robot manually in a 3D graphical user interface (rviz). In a second step, the placement of the robot will have to be refined automatically using a recalibration tool used in the laboratory. Finally, an algorithm to find the optimal placement of the robot in the map automatically (Go-ICP) can be implemented. The student will be supervised by experts in 3D cartography and the registration algorithm. The code will be publicly hosted on the GitHub of the laboratory and will be integrated to ROS (Robot Operating System).&lt;/p&gt;
 
-&lt;h1 id=&quot;publications&quot;&gt;Publications&lt;/h1&gt;
+&lt;p&gt;For contextual information, see &lt;a href=&quot;../../research/libpointmatcher/&quot;&gt;the project page on libpointmatcher&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 class=&quot;bibliography&quot;&gt;Journal Articles&lt;/h2&gt;
-&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;kubelka2016improving&quot;&gt;Kubelka, V., Reinstein, M., &amp;amp; Svoboda, T. (2016). Improving multimodal data fusion for mobile robots by trajectory smoothing. &lt;i&gt;Robotics and Autonomous Systems&lt;/i&gt;, &lt;i&gt;84&lt;/i&gt;, 88–96.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/kubelka2016improving/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Pomerleau2015e&quot;&gt;Kubelka, V., Oswald, L., Pomerleau, F., Colas, F., Svoboda, T., &amp;amp; Reinstein, M. (2015). Robust data fusion of multimodal sensory information for mobile robots. &lt;i&gt;Journal of Field Robotics&lt;/i&gt;, &lt;i&gt;32&lt;/i&gt;(4), 447–473.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Pomerleau2015e/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;simanek2015evaluation&quot;&gt;Simanek, J., Reinstein, M., &amp;amp; Kubelka, V. (2015). Evaluation of the EKF-based estimation architectures for data fusion in mobile robots. &lt;i&gt;IEEE/ASME Transactions on Mechatronics&lt;/i&gt;, &lt;i&gt;20&lt;/i&gt;(2), 985–990.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/simanek2015evaluation/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;simanek2015improving&quot;&gt;Simanek, J., Kubelka, V., &amp;amp; Reinstein, M. (2015). Improving multi-modal data fusion by anomaly detection. &lt;i&gt;Autonomous Robots&lt;/i&gt;, &lt;i&gt;39&lt;/i&gt;(2), 139–154.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/simanek2015improving/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-&lt;h2 class=&quot;bibliography&quot;&gt;Conference Articles&lt;/h2&gt;
-&lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;span id=&quot;Dandurand2019&quot;&gt;Dandurand, P., Babin, P., Kubelka, V., Giguère, P., &amp;amp; Pomerleau, F. (2019). Predicting GNSS satellite visibility from dense point clouds. In &lt;i&gt;preprint, ArXiv. Submitted to Field and Service Robotics (FSR)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Dandurand2019/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Babin2019a&quot;&gt;Babin, P., Dandurand, P., Kubelka, V., Giguère, P., &amp;amp; Pomerleau, F. (2019). Large-scale 3D Mapping of Sub-arctic Forests. In &lt;i&gt;preprint, ArXiv. Submitted to Field and Service Robotics (FSR)&lt;/i&gt;.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/Babin2019a/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;jirkuu2016wifi&quot;&gt;Jirku, M., Kubelka, V., &amp;amp; Reinstein, M. (2016). WiFi localization in 3D. In &lt;i&gt;2016 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)&lt;/i&gt; (pp. 4551–4557). IEEE.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/jirkuu2016wifi/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kruijff2016deployment&quot;&gt;Kruijff-Korbayová, I., Freda, L., Gianni, M., Ntouskos, V., Hlaváč, V., Kubelka, V., … others. (2016). Deployment of ground and aerial robots in earthquake-struck amatrice in italy (brief report). In &lt;i&gt;2016 IEEE international symposium on safety, security, and rescue robotics (SSRR)&lt;/i&gt; (pp. 278–279). IEEE.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/kruijff2016deployment/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kubelka2014combining&quot;&gt;Kubelka, V., &amp;amp; Reinstein, M. (2014). Combining Complementary Motion Estimation Approaches to Increase Reliability in Urban Search &amp;amp; Rescue Missions. In &lt;i&gt;International Workshop on Modelling and Simulation for Autonomous Systems&lt;/i&gt; (pp. 347–356). Springer, Cham.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/kubelka2014combining/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;reinstein2013terrain&quot;&gt;Reinstein, M., Kubelka, V., &amp;amp; Zimmermann, K. (2013). Terrain adaptive odometry for mobile skid-steer robots. In &lt;i&gt;2013 IEEE International Conference on Robotics and Automation&lt;/i&gt; (pp. 4706–4711). IEEE.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/reinstein2013terrain/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kubelka2012complementary&quot;&gt;Kubelka, V., &amp;amp; Reinstein, M. (2012). Complementary filtering approach to orientation estimation using inertial sensors only. In &lt;i&gt;2012 IEEE international conference on robotics and automation&lt;/i&gt; (pp. 599–605). IEEE.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;/bibliography/kubelka2012complementary/&quot;&gt; Bibtex source&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Vladimír Kubelka</name><email>vladimir.kubelka.1@ulaval.ca</email></author><summary type="html">Vladimír has received his master’s degree in Cybernetics and Robotics from the Czech Technical University in Prague (2013). The experiments for the master’s thesis were performed at the ASL lab (ETH Zurich) during his visiting student internship. After that, he continued as a Ph.D. student at CTU and focused on the problem of data fusion and state estimation for ground robots in harsh conditions. He had the opportunity to participate in two EU-funded search and rescue projects NIFTi and TRADR. These projects offered real-world scenarios to test the localization algorithms. The main challenge were sensor outages (because of dark areas, smoke), unstable terrain and semi-structured environments (e.g., earthquake aftermath). He defended his Ph.D. thesis in 2018 (supervised by Michal Reinstein and Tomáš Svoboda) and enrolled as a postdoc fellow with the NORLAB. The Canadian winter brings new challenges for the ground mobile robots: deep snow, adversary conditions for optical sensors and changing terrain caused by wind and blizzards.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/people/v_kubelka.jpg%22,%20%22teaser%22=%3E%22/people/v_kubelka_avatar.jpg%22%7D" /></entry></feed>
+&lt;hr /&gt;
+&lt;h2 id=&quot;intern-3---not-available-anymore&quot;&gt;Intern 3 - Not available anymore&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Electrical Engineering, Computer Engineering&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The laboratory is preparing for a major U.S. deployment in September 2021. The goal of this deployment is to explore underground environments using a fleet of autonomous robots. To do so, the laboratory recently acquired new robots and commissioned the design of a custom power supply board for the sensors.&lt;/p&gt;
+
+&lt;p&gt;The objective of the internship is to complete the electronic integration of the robots and to participate in the robustness tests of the systems. The tracked robots should be able to climb stairs and withstand a certain level of shock. The student will be supervised by robotics experts with backgrounds in computer science, electricity and mechanics.&lt;/p&gt;
+
+&lt;p&gt;For contextual information, see &lt;a href=&quot;../../research/darpa-subt-urban/&quot;&gt;the project page on SUBT&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;intern-4---not-available-anymore&quot;&gt;Intern 4 - Not available anymore&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;computer science, software engineering, computer engineering&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The laboratory is preparing for a major U.S. deployment in September 2021. The goal of this deployment is to explore underground environments using a fleet of autonomous robots. The laboratory is developing 3D mapping and localization solutions based on lidars, but the maps used are often too sparse to allow obstacle avoidance.&lt;/p&gt;
+
+&lt;p&gt;The objective of this internship is to combine the data from a lidar with the robot’s localization algorithms to produce a dense map within a close radius of the robot. In a first step, a dense map will be produced and displayed in a graphical user interface (rviz). Then, compression solutions will be tested to reduce the bandwidth of these maps during wireless transmission. Finally, obstacle avoidance algorithms will be studied. The student will be supervised by experts in 3D mapping and resetting algorithms. The code will be publicly hosted on the laboratory’s GitHub and will be integrated to ROS (Robot Operating System).&lt;/p&gt;
+
+&lt;p&gt;For contextual information, see &lt;a href=&quot;../../research/darpa-subt-urban/&quot;&gt;the project page on SUBT&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;work-environment&quot;&gt;Work environment&lt;/h1&gt;
+
+&lt;p&gt;All internships will be held in the Norlab (Northern Robotics Laboratory). This research laboratory specializes in mobile and autonomous systems operating in northern or difficult conditions in general. We aim to study problems related to navigation algorithms in order to push the limits of what is currently possible to do with a mobile robot in real-life conditions. Currently, our efforts are directed towards localization algorithms based on laser sensors (lidar) and 3D reconstruction of environments.&lt;/p&gt;
+
+&lt;p&gt;The laboratory has two workshops in the Adrien-Pouliot building allowing interaction with research equipment according to current health standards. Unless otherwise specified, software development can be done remotely using existing data sets. Once the basis has been demonstrated, tests can be done on site with real research robots.&lt;/p&gt;
+
+&lt;h1 id=&quot;compensation&quot;&gt;Compensation&lt;/h1&gt;
+
+&lt;p&gt;There are two possible compensation options. The first option is for students aiming to continue at the Master’s level. If you have a rating greater than 3.8/4.3, we suggest that you apply for the NSERC Fellowship (https://www.nserc-crsng.gc.ca/students-etudiants/ug-pc/usra-brpc_fra.asp). Obtaining this scholarship will allow you to improve your record as a young researcher and normally comes with supplements from FRQNT. The laboratory also gives a $3,000 scholarship supplement for the internship. The application deadline is February 18, 2021.&lt;/p&gt;
+
+&lt;p&gt;If you are not selected for the award, salaries are set according to the collective agreement for research assistants and are approximately $15/hour. The work week is 35 hours/week. The duration of the internship may vary from 12 to 15 weeks.&lt;/p&gt;
+
+&lt;h1 id=&quot;application&quot;&gt;Application&lt;/h1&gt;
+
+&lt;p&gt;Send your choice of internship, your CV and your transcript to the laboratory director, François Pomerleau &lt;a href=&quot;mailto:francois.pomerleau@ift.ulaval.ca&quot;&gt;francois.pomerleau@ift.ulaval.ca&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;Positions will be allocated at the beginning of March 2021.&lt;/p&gt;</content><author><name>François Pomerleau</name><email>francois.pomerleau@ift.ulaval.ca</email></author><category term="news" /><category term="internships" /><summary type="html">Norlab is opening four internships covering multiple fields of study for this summer. Apply as soon as you can, we are closing the openings soon. Here is the list of opportunities:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" /><media:content medium="image" url="https://norlab.ulaval.ca/%7B%22feature%22=%3E%22/news/intern21/intern21.jpg%22,%20%22teaser%22=%3E%22/news/intern21/intern21_teaser.jpg%22%7D" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
