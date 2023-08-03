@@ -2,17 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Information for New Students • Northern Robotics Laboratory</title>
-    <meta name="description" content="Welcome to the laboratory!
-It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.
+    <title>How to change this website • Northern Robotics Laboratory</title>
+    <meta name="description" content="This is a quick tutorial on how to modify and deploy this website.
 
 ">
-    <meta name="keywords" content="howto, grants, salary, students">
+    <meta name="keywords" content="howto, jekyll, website">
     
     	<!-- Twitter Cards -->
-	<meta name="twitter:title" content="Information for New Students">
-	<meta name="twitter:description" content="Welcome to the laboratory!
-It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.
+	<meta name="twitter:title" content="How to change this website">
+	<meta name="twitter:description" content="This is a quick tutorial on how to modify and deploy this website.
 
 ">
 	
@@ -24,17 +22,16 @@ It will take a couple of weeks to get you up and running in the lab, so why not 
 	<!-- Open Graph -->
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Information for New Students">
-	<meta property="og:description" content="Welcome to the laboratory!
-It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.
+	<meta property="og:title" content="How to change this website">
+	<meta property="og:description" content="This is a quick tutorial on how to modify and deploy this website.
 
 ">
 	
-	<meta property="og:url" content="https://norlab.ulaval.ca/research/new-students/">
+	<meta property="og:url" content="https://norlab.ulaval.ca/research/how-to-change-website/">
 	<meta property="og:site_name" content="Northern Robotics Laboratory">
 
 
-    <link rel="canonical" href="https://norlab.ulaval.ca/research/new-students/">
+    <link rel="canonical" href="https://norlab.ulaval.ca/research/how-to-change-website/">
 
     <link href="https://norlab.ulaval.ca/atom.xml" type="application/atom+xml" rel="alternate" title="Northern Robotics Laboratory Atom Feed">
     <link href="https://norlab.ulaval.ca/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
@@ -178,62 +175,72 @@ It will take a couple of weeks to get you up and running in the lab, so why not 
   </nav><!-- /.breadcrumbs -->
 
 		<div class="page-title">
-			<h1>Information for New Students
+			<h1>How to change this website
 			<p></p>
 			</h1>
 		</div>
 		<div class="inner-wrap">
 			<div id="content" class="page-content" itemprop="articleBody">
-				<p>Welcome to the laboratory!
-It will take a couple of weeks to get you up and running in the lab, so why not use that time to explore different sources of information that will save you time later.</p>
+				<p>This is a quick tutorial on how to modify and deploy this website.</p>
 
-<h1 id="register-to-news-feeds">Register to news feeds</h1>
+<ol>
+  <li>
+    <p>Get the proper autorization.</p>
+  </li>
+  <li>
+    <p>Install Jekyll on your computer by following <a href="https://jekyllrb.com/docs/installation/" target="_blank">these instructions</a></p>
+  </li>
+  <li>
+    <p>Clone local copies:</p>
 
-<ul>
-  <li>Register to the magazine <a href="https://www.universityaffairs.ca">University Affairs</a> (free) for general information about the academic life.</li>
-  <li>Register to <a href="https://www.eu-robotics.net/eurobotics/newsroom/mailing-list">euRobotics mailing list</a>  for jobs, software release, call for journal special issues, etc.</li>
-  <li>Register to <a href="https://www.lists.kit.edu/sympa/subscribe/robotics-worldwide">robotics-worldwide mailing list</a>. Same information as euRobotics with a larger audience.</li>
-  <li>Don’t take your work <a href="http://phdcomics.com/">too seriously</a>.</li>
-</ul>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:norlab-ulaval/website.git
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:norlab-ulaval/norlab-ulaval.github.io.git
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>website
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Do some modifications.
+If you want to modify information related to people, start with <code class="language-plaintext highlighter-rouge">_data/authors.yml</code>
+If you want to write a post or a news, look in the folder <code class="language-plaintext highlighter-rouge">_posts</code>.
+It is easier to start by copying a markdown file <code class="language-plaintext highlighter-rouge">.mkd</code> and start from there.</p>
+  </li>
+  <li>
+    <p>Open a local server:</p>
 
-<h1 id="explore-our-github-repo">Explore our GitHub repo</h1>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve <span class="nt">--livereload</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Validate your modifications on <a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a>.</p>
+  </li>
+  <li>
+    <p>Send your modifications on GitHub: <code class="language-plaintext highlighter-rouge">git pull</code>, <code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, <code class="language-plaintext highlighter-rouge">git push</code></p>
+  </li>
+  <li>
+    <p>Compile in production mode:</p>
 
-<p>You will need an account on GitHub, so you can be added to the members of</p>
-<p style="text-align: center;">
-<a href="https://github.com/norlab-ulaval" target="_blank" class="btn">
-<img src="/images/logos/github.svg" style="padding-right: 1em; width: 4em; -webkit-filter: invert(100%); filter: invert(100%);" />
-norlab-ulaval
-</a>
-</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production bundle <span class="nb">exec </span>jekyll build
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Publish the compiled website:</p>
 
-<p>Then, explore the following:</p>
-<ul>
-  <li><a href="https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;q=poster&amp;type=&amp;language=">Scientific posters</a></li>
-  <li><a href="https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;q=publication&amp;type=&amp;language=">Scientific publications</a></li>
-  <li><a href="https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;q=mastersProposal&amp;type=&amp;language=">Master’s proposal</a></li>
-  <li><a href="https://github.com/norlab-ulaval?utf8=%E2%9C%93&amp;q=mastersThesis&amp;type=&amp;language=">Master’s thesis</a></li>
-  <li><a href="https://github.com/norlab-ulaval/visualIdentity">Different logos of the lab</a></li>
-  <li>Read our <a href="https://github.com/norlab-ulaval/latexGoodPractices/blob/master/preamble.tex">Latex good practices</a></li>
-</ul>
-
-<h1 id="phd-students-make-good-use-of-the-department-grants">Ph.D. students, make good use of the department grants</h1>
-<center><img src="/images/news/info_new_students/grants.png" style="width: 100%" /></center>
-
-<h1 id="little-tip-to-save-you-some-time">Little tip to save you some time</h1>
-<p>Create a new bookmark on you favorite web browser and copy-paste this script as the url:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">javascript</span><span class="p">:</span><span class="k">void</span><span class="p">((</span><span class="kd">function</span><span class="p">(){</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">'</span><span class="s1">https://acces.bibl.ulaval.ca/login?qurl=</span><span class="dl">'</span><span class="o">%</span><span class="mi">20</span><span class="o">+%</span><span class="mi">20</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">);})());</span>
-</code></pre></div></div>
-<p>If you click the bookmark when you are on a scientific article publisher website (e.g. Springer), it will log you into Ariane automatically. Ariane grants you access to the article without having to pay if the university has an agreement with the publisher.</p>
-
-<h1 id="be-social">Be social</h1>
-
-<ul>
-  <li>Like our Facebook page <a href="https://www.facebook.com/norlab.ulaval/">norlab.ulaval</a></li>
-  <li>Follow the LinkedIn page <a href="https://www.linkedin.com/company/norlab/">Norlab</a></li>
-  <li>Subscribe to our YouTube channel <a href="https://www.youtube.com/channel/UCh9G8xpr72lBiyWyBKXBTXA">norlab</a></li>
-  <li>Ask to be added on our ResearchGate <a href="https://www.researchgate.net/lab/Northern-Robotics-Laboratory-Norlab-Francois-Pomerleau">laboratory page</a></li>
-  <li>In general, reshare news from the lab to ensure maximum impact of our work</li>
-</ul>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ../norlab-ulaval.github.io
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull <span class="c"># just in case</span>
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync <span class="nt">-a</span> ../website/_site/ <span class="nb">.</span>
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">--all</span>
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-a</span> <span class="nt">-m</span> <span class="s2">"Your comment"</span>
+</code></pre></div>    </div>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 
 				<hr />
@@ -249,12 +256,12 @@ norlab-ulaval
 </div><!-- ./author-content -->
 
 					<div class="inline-btn">
-	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Information%20for%20New%20Students&amp;url=https://norlab.ulaval.ca/research/new-students/&amp;via=" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
-	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://norlab.ulaval.ca/research/new-students/" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=How%20to%20change%20this%20website&amp;url=https://norlab.ulaval.ca/research/how-to-change-website/&amp;via=" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://norlab.ulaval.ca/research/how-to-change-website/" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook</a>
 </div><!-- /.share-this -->
 
 					<div class="page-meta">
-	<p>Updated <time datetime="2019-05-07T00:00:00Z" itemprop="datePublished">May 07, 2019</time></p>
+	<p>Updated <time datetime="2017-07-12T00:00:00Z" itemprop="datePublished">July 12, 2017</time></p>
 </div><!-- /.page-meta -->
 				</footer><!-- /.footer -->
 				<aside>

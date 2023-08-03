@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Libpointmatcher • Northern Robotics Laboratory</title>
+    <meta name="description" content="Libpointmatcher is a library that implements the Iterative Closest Point (ICP) algorithm for alignment of point clouds. 
+It supports both point-to-point and point-to-plane ICP. 
+With the former, it is able to solve not only for a rigid transform, but also for a scale change between the clouds (that is, a similarity transform).
+
+">
+    <meta name="keywords" content="project, mapping, software, localization, library, point clouds">
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="Libpointmatcher">
+	<meta name="twitter:description" content="Libpointmatcher is a library that implements the Iterative Closest Point (ICP) algorithm for alignment of point clouds. 
+It supports both point-to-point and point-to-plane ICP. 
+With the former, it is able to solve not only for a rigid transform, but also for a scale change between the clouds (that is, a similarity transform).
+
+">
+	
+	
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="http://localhost:4000/images/projects/libpointmatcher_feature.png">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Libpointmatcher">
+	<meta property="og:description" content="Libpointmatcher is a library that implements the Iterative Closest Point (ICP) algorithm for alignment of point clouds. 
+It supports both point-to-point and point-to-plane ICP. 
+With the former, it is able to solve not only for a rigid transform, but also for a scale change between the clouds (that is, a similarity transform).
+
+">
+	<meta property="og:image" content="http://localhost:4000/images/projects/libpointmatcher_teaser.png">
+	<meta property="og:url" content="http://localhost:4000/research/libpointmatcher/">
+	<meta property="og:site_name" content="Northern Robotics Laboratory">
+
+
+    <link rel="canonical" href="http://localhost:4000/research/libpointmatcher/">
+
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Northern Robotics Laboratory Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+		<!-- Load MathJax if required -->
+		
+
+		<!-- Load extra fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Rokkitt:200" rel="stylesheet">
+
+  </head>
+
+  <body id="js-body">
+    <!--[if lt IE 9]><div class="upgrade notice-warning"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+    <header id="masthead">
+  <div class="inner-wrap">
+    <a href="http://localhost:4000/" class="site-title">Northern Robotics Laboratory </a>
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<!--li class="home"><a href="/">Northern Robotics Laboratory</a></li-->
+	
+    
+    <li>
+		<a href="http://localhost:4000/research/" 
+		>Research</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/publications/" 
+		>Publications</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/people/" 
+		>People</a></li>
+  
+    
+    <li>
+		<a href="http://localhost:4000/contact/" 
+		>Contact Us</a></li>
+  
+
+	<!-- Search for url -->
+	
+
+	
+
+	
+
+	
+		<li class="language-box"><span class="current-lang"> EN</span> </li>
+		
+			<li class="language-box"> <a  style="color:#e4e4e4;" href="/error/traduction-manquante/">FR</a> </li>
+		
+	
+
+</ul>
+
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>Northern Robotics Laboratory <span>Table of Contents</span></h5>
+
+  <ul class="menu-item">
+    
+			
+			<li>
+      	<a href="http://localhost:4000/research/">
+        
+        <div class="title">Research</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/publications/">
+        
+        <div class="title">Publications</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/people/">
+        
+        <div class="title">People</div>
+        
+      </a>
+    	</li>
+		
+			
+			<li>
+      	<a href="http://localhost:4000/contact/">
+        
+        <div class="title">Contact Us</div>
+        
+      </a>
+    	</li>
+		
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="nav-lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+
+    <div id="page-wrapper">
+      <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		<div class="page-feature">
+			<div class="page-image">
+				<img src="http://localhost:4000/images/projects/libpointmatcher_feature.png" class="page-feature-image" alt="Libpointmatcher" itemprop="image">
+				
+			</div><!-- /.page-image -->
+		</div><!-- /.page-feature -->
+		
+		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> › 
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/research/" itemprop="url">
+        <span itemprop="title">Research</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+		<div class="page-title">
+			<h1>Libpointmatcher
+			<p>A modular library for point cloud registrations</p>
+			</h1>
+		</div>
+		<div class="inner-wrap">
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>Libpointmatcher is a library that implements the Iterative Closest Point (ICP) algorithm for alignment of point clouds. 
+It supports both point-to-point and point-to-plane ICP. 
+With the former, it is able to solve not only for a rigid transform, but also for a scale change between the clouds (that is, a similarity transform).</p>
+
+<p>The library implements a set of filters to help denoise and subsample the input point clouds. It supports a variety of file types and it can be configured via both YAML files and an in-memory API.
+Libpointmatcher is written in C++ and fast enough for real-time application.</p>
+
+<p><strong>Note</strong>: <em>This project is ongoing and was started during a formal employment at ETH Zurich, within the <a href="http://www.asl.ethz.ch/">ASL</a>.</em></p>
+
+<p style="text-align: center;">
+<a href="https://github.com/ethz-asl/libpointmatcher" target="_blank" class="btn">
+<img src="/images/logos/github.svg" style="padding-right: 1em; width: 4em; -webkit-filter: invert(100%); filter: invert(100%);" />
+See it on GitHub
+</a>
+</p>
+
+<ul>
+  <li><strong>Main Investigator and scientific lead</strong>: <a href="../../people/f_pomerleau/">François Pomerleau</a></li>
+  <li><strong>Scientific Support</strong>: Francis Colas, Stéphane Magnenat</li>
+</ul>
+
+<h1 id="documentation">Documentation</h1>
+<ul>
+  <li><a href="../../libpointmatcher-doc">Libpointmatcher documentation</a></li>
+  <li><a href="../../libpointmatcher-modules">Libpointmatcher modules</a></li>
+</ul>
+
+<h1 id="publications">Publications</h1>
+
+<ol class="bibliography" reversed="reversed"><li><span id="Deschenes2021">Deschênes, S.-P., Baril, D., Kubelka, V., Giguère, P., &amp; Pomerleau, F. (2021). Lidar Scan Registration Robust to Extreme Motions. <i>2021 18th Conference on Robots and Vision (CRV)</i>. https://doi.org/10.1109/CRV52889.2021.00014</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Deschenes2021.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+
+<a href="https://ieeexplore.ieee.org/document/9469459" target="_blank"><i class="fas fa-external-link-alt">&nbsp;Publisher</i></a>
+&emsp;
+
+<a class="details" href="/bibliography/Deschenes2021/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Chahine2020">Chahine, G., Vaidis, M., Pomerleau, F., &amp; Pradalier, C. (2021). Mapping in unstructured natural environment: A sensor fusion framework for wearable sensor suites. <i>SN Applied Sciences</i>, <i>3</i>(5).</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Chahine2020/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Kubelka2020">Kubelka, V., Dandurand, P., Babin, P., Giguère, P., &amp; Pomerleau, F. (2020). Radio propagation models for differential GNSS based on dense point clouds. <i>Journal of Field Robotics</i>. https://doi.org/10.1002/rob.21988</span> <strong></strong>
+
+<br />
+
+
+
+<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.21988" target="_blank"><i class="fas fa-external-link-alt">&nbsp;Publisher</i></a>
+&emsp;
+
+<a class="details" href="/bibliography/Kubelka2020/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Tremblay2020">Tremblay, J.-F., Béland, M., Pomerleau, F., Gagnon, R., &amp; Giguère, P. (2020). Automatic 3D Mapping for Tree Diameter Measurements in Inventory Operations. <i>Journal of Field Robotics</i>. https://doi.org/10.1002/rob.21980</span> <strong>Special issue: Field and Service Robotics</strong>
+
+<br />
+
+
+
+<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.21980" target="_blank"><i class="fas fa-external-link-alt">&nbsp;Publisher</i></a>
+&emsp;
+
+<a class="details" href="/bibliography/Tremblay2020/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Labussiere2020">Labussière, M., Laconte, J., &amp; Pomerleau, F. (2020). Geometry Preserving Sampling Method based on Spectral Decomposition for Large-scale Environments. <i>Frontiers in Robotics and AI – Multi-Robot Systems</i>, <i>7</i>, 134. https://doi.org/10.3389/frobt.2020.572054</span> <strong></strong>
+
+<br />
+
+
+
+<a href="https://www.frontiersin.org/article/10.3389/frobt.2020.572054" target="_blank"><i class="fas fa-external-link-alt">&nbsp;Publisher</i></a>
+&emsp;
+
+<a class="details" href="/bibliography/Labussiere2020/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Dandurand2019">Dandurand, P., Babin, P., Kubelka, V., Giguère, P., &amp; Pomerleau, F. (2019). Predicting GNSS satellite visibility from dense point clouds. <i>Proceedings of the Conference on Field and Service Robotics (FSR). Springer Tracts in Advanced Robotics</i>.</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Dandurand2019.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+
+<a class="details" href="/bibliography/Dandurand2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Babin2019a">Babin, P., Dandurand, P., Kubelka, V., Giguère, P., &amp; Pomerleau, F. (2019). Large-scale 3D Mapping of Subarctic Forests. <i>Proceedings of the Conference on Field and Service Robotics (FSR). Springer Tracts in Advanced Robotics</i>.</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Babin2019a.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+<a href="/pdf/Babin2019a.slides.pdf" target="_blank"><i class="fas fa-file-powerpoint">&nbsp;Slides</i></a>
+&emsp;
+
+
+<a class="details" href="/bibliography/Babin2019a/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Tremblay2019">Tremblay, J.-F., Béland, M., Pomerleau, F., Gagnon, R., &amp; Giguère, P. (2019). Automatic 3D Mapping for Tree Diameter Measurements in Inventory Operations. <i>Proceedings of the Conference on Field and Service Robotics (FSR). Springer Tracts in Advanced Robotics</i>.</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Tremblay2019.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+<a href="/pdf/Tremblay2019.slides.pdf" target="_blank"><i class="fas fa-file-powerpoint">&nbsp;Slides</i></a>
+&emsp;
+
+
+<a class="details" href="/bibliography/Tremblay2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pradalier2019">Pradalier, C., Aravecchia, S., &amp; Pomerleau, F. (2019). Multi-session lake-shore monitoring in visually challenging conditions. <i>Proceedings of the Conference on Field and Service Robotics (FSR). Springer Tracts in Advanced Robotics</i>.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pradalier2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Landry2019">Landry, D., Pomerleau, F., &amp; Giguère, P. (2019). CELLO-3D: Estimating the Covariance of ICP in the Real World. <i>Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</i>.</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Landry2019.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+
+<a class="details" href="/bibliography/Landry2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Babin2019">Babin, P., Giguère, P., &amp; Pomerleau, F. (2019). Analysis of Robust Functions for Registration Algorithms. <i>Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</i>. https://doi.org/10.1109/ICRA.2019.8793791</span> <strong></strong>
+
+<br />
+
+<a href="/pdf/Babin2019.pdf" target="_blank"><i class="fas fa-file-pdf">&nbsp;PDF</i></a>
+&emsp;
+
+
+
+<a href="https://doi.org/10.1109/ICRA.2019.8793791" target="_blank"><i class="fas fa-external-link-alt">&nbsp;Publisher</i></a>
+&emsp;
+
+<a class="details" href="/bibliography/Babin2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Labussiere2019">Labussière, M., Laconte, J., &amp; Pomerleau, F. (2018). Geometry Preserving Sampling Method based on Spectral Decomposition for 3D Registration. In <i>arXiv preprint arXiv:1810.01666</i>.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Labussiere2019/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Babin2018">Babin, P., Pomerleau, F., &amp; Giguère, P. (2018). <i>Improving the robustness of registration algorithm in complex environments</i>. Colloque du regroupement FRQNT-REPARTI.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Babin2018/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Landry2018">Landry, D., Pomerleau, F., &amp; Giguère, P. (2018). <i>Data-driven covariance estimation of the iterative closest point algorithm</i>. Rendez-vous en intelligence artificielle de Québec.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Landry2018/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2016b">McGarey, P., Pomerleau, F., &amp; Barfoot, T. D. (2016). System design of a tethered robotic explorer (TReX) for 3D mapping of steep terrain and harsh environments. <i>Proceedings of the Conference on Field and Service Robotics (FSR). Springer Tracts in Advanced Robotics</i>, <i>113</i>, 267–281.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2016b/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2015a">Pomerleau, F., Colas, F., &amp; Siegwart, R. (2015). A Review of Point Cloud Registration Algorithms for Mobile Robotics. <i>Foundations and Trends in Robotics</i>, <i>4</i>(1), 1–104.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2015a/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2015c">Krüsi, P., Bücheler, B., Pomerleau, F., Schwesinger, U., Siegwart, R., &amp; Furgale, P. (2015). Lighting-invariant adaptive route following using iterative closest point matching. <i>Journal of Field Robotics</i>, <i>32</i>(4), 534–564.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2015c/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2015d">Hitz, G., Pomerleau, F., Colas, F., &amp; Siegwart, R. (2015). Relaxing the planar assumption: 3D state estimation for an autonomous surface vessel. <i>International Journal of Robotics Research</i>, <i>34</i>(13), 1604–1621.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2015d/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2014d">Pomerleau, F., Krüsi, P., Colas, F., Furgale, P., &amp; Siegwart, R. (2014). Long-term 3D map maintenance in dynamic environments. <i>Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</i>, 3712–3719.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2014d/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2013">Pomerleau, F. (2013). <i>Applied Registration for Robotics: Methodology and Tools for ICP-like Algorithms</i> [PhD thesis]. Eidgenössische Technische Hochschule (ETH) Zurich.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2013/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li>
+<li><span id="Pomerleau2013b">Pomerleau, F., Colas, F., Siegwart, R., &amp; Magnenat, S. (2013). Comparing ICP variants on real-world data sets: Open-source library and experimental protocol. <i>Autonomous Robots</i>, <i>34</i>(3), 133–148.</span> <strong></strong>
+
+<br />
+
+
+
+<a class="details" href="/bibliography/Pomerleau2013b/"> <i class="fas fa-file-code">&nbsp;Bibtex source</i> </a></li></ol>
+
+<h1 id="results">Results</h1>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//youtube.com/embed/
+jlAArM_6N-I
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//youtube.com/embed/
+cMgLyLpnsoU
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+ygIvzWVfPYk
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+lP5Mj-TGaiw
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+UCCAUf64tD0
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+M5Y99o7um88
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+g8l-Xq4qYeE
+" frameborder="0"> </iframe>	
+</div>
+
+<div style="padding-bottom: 20px">
+<iframe width="560" height="315" allowfullscreen="" src="//www.youtube.com/embed/
+rIZud3F5IJw
+" frameborder="0"> </iframe>	
+</div>
+
+
+				<hr />
+				<footer class="page-footer">
+					
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/people/f_pomerleau_avatar.jpg" alt="François Pomerleau">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <a href="/people/f_pomerleau" itemprop="author">François Pomerleau</a> </h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
+
+					<div class="inline-btn">
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Libpointmatcher&amp;url=http://localhost:4000/research/libpointmatcher/&amp;via=" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/research/libpointmatcher/" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook</a>
+</div><!-- /.share-this -->
+
+					<div class="page-meta">
+	<p>Updated <time datetime="2018-05-10T00:00:00Z" itemprop="datePublished">May 10, 2018</time></p>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		
+	</article><!-- ./wrap -->
+</div><!-- /#main -->
+
+      <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+      
+			<li><a href="https://www.ulaval.ca" target="_blank">Université Laval</a></li>
+		
+      
+			<li><a href="https://www.ift.ulaval.ca" target="_blank">Département d'informatique et de génie logiciel</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2023 <a href="http://localhost:4000">Northern Robotics Laboratory</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+</footer>
+    </div>
+
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
+
+		
+
+  </body>
+
+</html>
