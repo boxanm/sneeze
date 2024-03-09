@@ -45,7 +45,7 @@ function init() {
         .setMaterials(materials)
         .setPath("resources/assembly/")
         .load(
-          "assembly_basic_frame.obj",
+          "assembly.obj",
           function (object) {
             object.position.x = 0.5;
             object.position.y = -0.5;
